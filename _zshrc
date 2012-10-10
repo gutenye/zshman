@@ -1,0 +1,711 @@
+source "$ZSH/lib/zcm.zsh"
+typeset -A rc themerc helperrc 
+autoload -U colors && colors 
+setopt null_glob # need by all scripts
+source "$ZSH/lib/startup.zsh"
+
+[[ "$TERM" == "dumb" ]] && color=false || color=true
+zset_default color $color
+
+# ¤settings #{{{1
+# Smart URLs
+autoload -U url-quote-magic
+zle -N self-insert url-quote-magic
+
+# Jobs
+setopt long_list_jobs
+
+# Pager
+if [[ -z "$PAGER" ]]; then
+  export PAGER=less
+fi
+
+# Localization
+if [[ -z "$LC_CTYPE" ]]; then
+  export LC_CTYPE=en_US.UTF-8
+fi
+
+
+# grep
+if [[ $rc[color] = true ]]; then
+  if [[ -z "$GREP_OPTIONS" ]]; then
+    export GREP_OPTIONS="--color=auto"
+  fi
+  if [[ -z "$GREP_COLOR" ]]; then
+    export GREP_COLOR="37;45"
+  fi
+else
+  export GREP_OPTIONS="--color=none"
+  export GREP_COLOR=""
+fi
+#}}}1
+
+# ¤specturm #{{{1
+# A script to make using 256 colors in ZSH less painful.
+# P.C. Shyamshankar <sykora@lucentbeing.com>
+# Copied from http://github.com/sykora/etc/blob/master/zsh/functions/spectrum/
+
+typeset -Ag FX FG BG
+
+FX=(
+  reset     "%{[00m%}"
+  bold      "%{[01m%}" no-bold      "%{[22m%}"
+  italic    "%{[03m%}" no-italic    "%{[23m%}"
+  underline "%{[04m%}" no-underline "%{[24m%}"
+  blink     "%{[05m%}" no-blink     "%{[25m%}"
+  reverse   "%{[07m%}" no-reverse   "%{[27m%}"
+)
+
+for color in {000..255}; do
+  FG[$color]="%{[38;5;${color}m%}"
+  BG[$color]="%{[48;5;${color}m%}"
+done
+#}}}1
+
+# ¤utils #{{{1
+alias print-path="echo -e ${PATH//:/\\n}"
+
+function history-stat() {
+  history | awk '{print $2}' | sort | uniq -c | sort -rn | head
+}
+
+function mkdcd() {
+  mkdir -p "$1"
+  cd "$1"
+}
+
+function cdll() {
+  if [[ -n "$1" ]]; then
+    builtin cd "$1"
+    ls -lFhA
+  else
+    ls -lFhA
+  fi
+}
+
+function pushdll() {
+  if [[ -n "$1" ]]; then
+    builtin pushd "$1"
+    ls -lFhA
+  else
+    ls -lFhA
+  fi
+}
+
+function popdll() {
+  builtin popd
+  ls -lFhA
+}
+
+function gown() {
+  sudo chown -R "${USER}" "${1:-.}"
+}
+
+function reload() {
+  local zshrc="$HOME/.zshrc"
+  if [[ -n "$1" ]]; then
+    zshrc="$1"
+  fi
+  source "$zshrc"
+}
+
+function calc() {
+  echo "scale=4; $@" | bc -l
+}
+
+function pmine() {
+  ps "$@" -u "$USER" -o pid,%cpu,%mem,command
+}
+
+function findexec() {
+  find . -type f -iname "*${1:-}*" -exec "${2:-file}" {} \;
+}
+
+function httpserve() {
+  python -m SimpleHTTPServer "$@"
+}
+#}}}1
+
+# ¤correct #{{{1
+setopt correct_all
+
+alias rm="nocorrect rm"
+alias cp="nocorrect cp $rc[cp_options]"
+alias mv="nocorrect mv"
+alias ln="nocorrect ln"
+alias mkdir="nocorrect mkdir $rc[mkdir_options]"
+alias man='nocorrect man'
+alias mysql='nocorrect mysql'
+alias mkdir='nocorrect mkdir -p'
+alias gist='nocorrect gist'
+alias heroku='nocorrect heroku'
+alias ebuild='nocorrect ebuild'
+alias hpodder='nocorrect hpodder'
+#}}}1
+
+[[ $(id -u) -eq 0 ]] && sudo="" || sudo="sudo"
+
+setopt null_glob
+
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=10000
+export SAVEHIST=10000
+
+setopt append_history
+setopt extended_history
+# setopt hist_expire_dups_first
+# setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
+# setopt share_history
+
+zset color
+
+zset ls_options    "--group-directories-first --ignore-backups"
+zset mkdir_options "--parents"
+# zset cp_options 	 "--interactive --recursive"
+zset get_options   "-L -O"
+
+zset iotop_options "--only"
+
+# zset noauto_title
+# zset case_sensitive # case-sensitive completion
+
+#¤completion
+if (( ! ${+rc[ls_options]} )); then
+  rc+=(case_sensitive false)
+fi
+
+unsetopt menu_complete     # Do not autoselect the first completion entry.
+unsetopt flow_control      # Disable start/stop characters in shell editor.
+setopt auto_menu           # Show completion menu on a succesive tab press.
+setopt complete_in_word    # Complete from both ends of a word.
+setopt always_to_end       # Move cursor to the end of a completed word.
+unsetopt correct_all
+
+WORDCHARS=""
+
+# FIXME: complist is crashing ZSH on menu completion.
+# zmodload -i zsh/complist
+
+## Case-insensitive (all), partial-word, and then substring completion.
+if [[ $rc[case_sensitive] = true ]]; then
+  zstyle ":completion:*" matcher-list "r:|[._-]=* r:|=*" "l:|=* r:|=*"
+else
+  zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}" "r:|[._-]=* r:|=*" "l:|=* r:|=*"
+fi
+
+zstyle ":completion:*" list-colors ""
+
+# FIXME: It depends on complist which crashes ZSH on menu completion.
+# Should this be in key-bindings.zsh?
+# bindkey -M menuselect "^o" accept-and-infer-next-history
+
+zstyle ":completion:*:*:*:*:*" menu select
+zstyle ":completion:*:*:kill:*:processes" list-colors "=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01"
+zstyle ":completion:*:*:*:*:processes" command "ps -u `whoami` -o pid,user,comm -w -w"
+
+# Disable named-directories autocompletion.
+zstyle ":completion:*:cd:*" tag-order local-directories directory-stack path-directories
+cdpath=(.)
+
+# Use /etc/hosts and known_hosts for hostname completion.
+[ -r ~/.ssh/known_hosts ] && _ssh_hosts=(${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[\|]*}%%\ *}%%,*}) || _ssh_hosts=()
+[ -r /etc/hosts ] && : ${(A)_etc_hosts:=${(s: :)${(ps:\t:)${${(f)~~"$(</etc/hosts)"}%%\#*}##[:blank:]#[^[:blank:]]#}}} || _etc_hosts=()
+hosts=(
+  "$_ssh_hosts[@]"
+  "$_etc_hosts[@]"
+  `hostname`
+  localhost
+)
+zstyle ":completion:*:hosts" hosts $hosts
+
+# Use caching to make completion for cammands such as dpkg and apt usable.
+zstyle ":completion::complete:*" use-cache 1
+zstyle ":completion::complete:*" cache-path ~/.oh-my-zsh/cache/
+
+# Don"t complete uninteresting users...
+zstyle ":completion:*:*:*:users" ignored-patterns \
+        adm amanda apache avahi beaglidx bin cacti canna clamav daemon \
+        dbus distcache dovecot fax ftp games gdm gkrellmd gopher \
+        hacluster haldaemon halt hsqldb ident junkbust ldap lp mail \
+        mailman mailnull mldonkey mysql nagios \
+        named netdump news nfsnobody nobody nscd ntp nut nx openvpn \
+        operator pcap postfix postgres privoxy pulse pvm quagga radvd \
+        rpc rpcuser rpm shutdown squid sshd sync uucp vcsa xfs
+
+# ... unless we really want to.
+zstyle "*" single-ignored show
+
+
+# guten
+# completer
+# _expand _complete _ignored _correct _approximate
+#
+# _approximate
+#  zstyle ":completion:*" max-errors 2 # character error numbers
+zstyle ":completion:*" completer  _expand _complete _ignored 
+zstyle ":completion:*" max-errors 10
+
+zstyle ":completion:*" matcher-list ""
+
+zstyle :compinstall filename "/home/guten/.zshrc"
+#compdef "_files -g "*.log"" "-redirect-,2>,-default-"
+zstyle ":completion:*:*:-redirect-,2>,*:*" file-patterns "*.log"
+zstyle ":completion:*" verbose yes
+zstyle ":completion:*:*:kill:*" verbose no
+
+# file ignore
+fignore=(.o \~ .dvi)
+
+# ¤ls
+ls_options="--group-directories-first --ignore-backups"
+[[ $rc[color] == true ]] && ls_options="--classify $ls_options"
+zset_default ls_options $ls_options
+
+# alias ls
+if [[ $rc[color] == true ]]; then
+  dircolors ~/.dir_colors >/dev/null
+  alias ls="ls --color=auto $rc[ls_options]"
+fi
+
+alias ll='ls -lh'            # Show human readable.
+alias la='ls -lhA'           # Show hidden files.
+alias lx='ls -lhXB'          # Sort by extension.
+alias lk='ls -lhSr'          # Sort by size, biggest last.
+alias lc='ls -lhtcr'         # Sort by and show change time, most recent lasa.
+alias lu='ls -lhtur'         # Sort by and show access time, most recent last.
+alias lt='ls -lhtr'          # Sort by date, most recent last.
+alias lm='ls -lha | more'    # Pipe through 'more'.
+alias lr='ls -lhR'           # Recursive ls.
+alias sl='ls'                
+
+# ¤cd
+setopt auto_cd              # Auto cd to a directory without typing cd.
+setopt auto_pushd           # Push the old directory onto the stack on cd.
+setopt pushd_ignore_dups    # Don't store duplicates in the stack.
+setopt cdable_vars          # Change directory to a path stored in a variable.
+setopt auto_name_dirs       # Auto add variable-stored paths to ~ list.
+setopt multios              # Write to multiple descriptors.
+
+function ce(){ cd $G_DEV/$1 }
+function ceo(){ cd $G_DEV/one/$1 }
+function cet(){ cd $G_DEV/two/$1 }
+function ces(){ cd $G_DEV/src/$1 }
+function cel(){ cd $G_DEV/learn/$1 }
+alias cw="cd $G_DOWN"
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+alias cd.....='cd ../../../..'
+alias cd-='cd -'
+alias -- --='cd -'  # - is used by sudo
+function cd~() { cd $HOME/$1 }
+function cd/() { cd /$1 }
+
+alias 1='cd -'
+alias 2='cd +2'
+alias 3='cd +3'
+alias 4='cd +4'
+alias 5='cd +5'
+alias 6='cd +6'
+alias 7='cd +7'
+alias 8='cd +8'
+alias 9='cd +9'
+
+function cd() {
+  if   [[ "x$*" == "x..." ]]; then
+    cd ../..
+  elif [[ "x$*" == "x...." ]]; then
+    cd ../../..
+  elif [[ "x$*" == "x....." ]]; then
+    cd ../../..
+  elif [[ "x$*" == "x......" ]]; then
+    cd ../../../..
+  else
+    builtin cd "$@"
+  fi
+}
+
+
+# ¤sudo
+alias -- -="sudo"
+alias -- -e="sudo $EDITOR"
+alias -- -rm="sudo rm"
+alias -- -rmr="sudo rm -r"
+alias -- -mv="sudo mv"
+alias -- -cp="sudo cp $rc[cp_options]"
+alias -- -ln="sudo ln"
+alias -- -mkdir="sudo mkdir $rc[mkdir_options]"
+# system
+alias -- -halt="sudo halt"
+alias -- -reboot="sudo reboot"
+alias -- -mount="sudo mount"
+alias -- -umount="sudo umount"
+alias -- -pacman="sudo pacman"
+alias -- -clyde="sudo clyde"
+alias -- -kill="sudo kill"
+# network
+alias -- -dhcpcd="sudo dhcpcd"
+alias -- -pppoe-connect="sudo pppoe-connect"
+alias -- -netcfg="sudo netcfg"
+# programming
+alias -- -pip="sudo pip"
+alias -- -npm="sudo npm -g"
+alias -- -gem="sudo gem"
+alias -- -easy_install="sudo easy_install"
+
+# ¤autosudo
+alias halt="$sudo halt $rc[halt_options]"
+alias reboot="$sudo reboot $rc[reboot_options]"
+alias dhdpcd="$sudo dhcpcd $rc[dhcpcd_options]"
+alias netcfg="$sudo netcfg $rc[netcfg_options]"
+alias pppoe-connect="$sudo pppoe-connect $rc[pppoe-connect_options]"
+alias iotop="$sudo iotop $rc[iotop_options]"
+alias rc.d="$sudo rc.d $rc[rcd_options]"
+
+function pacman() {
+	case $1 in
+		-S | -S[^sih]* | -R* | -U*) $sudo pacman $rc[pacman_options] $* ;;
+		* ) command pacman $rc[pacman_options] $* ;;
+	esac
+}
+
+function clyde() {
+	case $1 in
+		-S | -S[^sih]* | -R* | -U*) $sudo clyde $rc[clyde_options] $* ;;
+		* ) command clyde $rc[clyde_options] $* ;;
+	esac
+}
+
+function mount() {
+	case $1 in
+		"" ) command mount $rc[mount_options] ;;
+		* ) $sudo mount $rc[mount_options] $* ;;
+	esac
+}
+
+alias umount="$sudo umount $rc[umount_options]"
+
+# ¤systemctl
+function sctl(){
+  cmd=$1; shift
+
+  case $cmd in
+    # list-enabled
+    --enabled ) ls --color /etc/systemd/system/*.wants/ ;;
+    reload ) $sudo systemctl --system daemon-reload ;;
+    start )
+      $sudo systemctl start $*
+      systemctl status $*
+      ;;
+    restart )
+      $sudo systemctl restart $*
+      systemctl status $*
+      ;;
+    * ) systemctl $cmd $* ;;
+  esac
+}
+
+# ¤journalctl
+function jctl(){
+  name=$1; shift
+
+  case $name in
+    systemd ) journalctl _PID=1 $* ;;
+    nm ) journalctl _SYSTEMD_UNIT=NetworkManager.service $* ;;
+    * ) journalctl _SYSTEMD_UNIT=${name}.service $* ;;
+  esac
+}
+
+##
+## programming languages
+##
+
+#function gem() {
+  #case $1 in
+    #install | uninstall | update ) $sudo gem $* ;;
+    #*) command gem $* ;;
+  #esac
+#}
+
+function pip() {
+	if [[ -n ${VIRTUAL_ENV+1} && -w $VIRTUAL_ENV ]] ; then
+		command pip $rc[pip_options] $*
+	else
+		case $1 in
+			install | uninstall ) $sudo pip $rc[pip_options] $* ;;
+			*) command pip $rc[pip_options] $* ;;
+		esac
+	fi
+}
+
+alias easy_install="$sudo easy_install $rc[easy_install_options]"
+
+alias rc.d="$sudo rc.d"
+
+function gem(){
+  if (( ${+commands[rbenv]} )); then
+    version=`rbenv version`
+
+    if [[ $version =~ '^system' ]]; then
+      sudo="sudo"
+    else
+      sudo="command"
+    fi
+  else
+    sudo="sudo"
+  fi
+
+  case $1 in
+    install | uninstall | update ) $sudo gem $* ;;
+    *) command gem $* ;;
+  esac
+}
+
+function npm() {
+	case $1 in
+		install | uninstall ) $sudo npm -g $rc[npm_options] $* ;;
+    link ) npm $rc[npm_optins] $* ;;
+		*) command npm -g $rc[npm_options] $* ;;
+	esac
+}
+
+# ¤guten
+# Global
+alias -g L="| less "
+alias -g V="| vi -"
+alias -g 0null=" &>/dev/null"
+alias -g 1null=" 1>/dev/null"
+alias -g 2null=" 2>/dev/null"
+
+# General
+alias rmr="rm -r"
+alias cp="cp $rc[cp_options]"
+alias mkdir="mkdir $rc[mkdir_options]"
+alias du="du $rc[du_options]"
+alias df="df $rc[df_options]"
+alias pu="pushd"
+alias po="popd"
+alias history="fc -l 1"
+alias get="curl $rc[get_options]"
+alias afind="ack -il"
+alias type="type -a"
+alias ssh="ssh -X"
+
+if (( ${+commands[htop]} )); then
+  alias top=htop
+else
+  alias topm="top -o vsize"
+  alias topc="top -o cpu"
+fi
+
+if [[ $rc[color] = true ]]; then
+  if (( ${+commands[colordiff]} )); then
+    alias diff="colordiff"
+  fi
+
+  if (( ${+commands[colormake]} )); then
+    alias make="colormake"
+  fi
+fi
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+
+export seedbox="sabersalv@bone.feralhosting.com"
+alias rsync2="rsync -azHX --stats --progress -vh --numeric-ids"
+
+alias gr="grep"
+alias gri="grep -i"
+alias mp="mplayer"
+
+alias esed="sed -r"
+alias syncdate="s ntpd -qg"
+alias uninstaller="wine /usr/lib/wine/fakedlls/uninstaller.exe"
+
+alias pic="feh --scale-down"
+
+function cget() {
+  ( cd "$2">/dev/null; curl -OL "$1"; )  
+}
+
+function less() {
+	[ `wc -l "$1" | awk '{print $1}'` -ge $LINES ] && less "$1" || cat "$1"
+}
+
+# mplayer 
+function mp() {
+	case $1 in
+		music ) mplayer -shuffle $HOME/music/star/* ;;
+	esac
+}
+
+function sync(){
+#alias muywank="sudo mount -L uywankRoot /uywank; sudo mount -L uywankBoot /uywank/boot; sudo mount -L uywankUsr /uywank/usr; sudo mount -L uywankHome /uywank/home; sudo mount -L uywankBackup /uywank/backup"
+
+#alias uuywank="sudo umount /uywank/home; sudo umount /uywank/usr; sudo umount /uywank/boot; sudo umount /uywank/backup; sudo umount /uywank"
+
+#alias uywanksync="sudo rsync -avhAHXES --numeric-ids --delete  --exclude-from=$G_A/uywanksync_exclude --files-from=$G_A/uywanksync -r / /uywank"
+
+#alias mywank="sudo mount -L ywankRoot /ywank; sudo mount -L ywankBoot /ywank/boot; sudo mount -L ywankUsr /ywank/usr; sudo mount -L ywankHome /ywank/home"
+
+#alias uywank="sudo umount /ywank/home; sudo umount /ywank/usr; sudo umount /ywank/boot; sudo umount /ywank"
+#alias ywanksync="sudo rsync -avhAHXES --numeric-ids --delete --delete-after  --exclude-from=$G_A/uywanksync_exclude --files-from=$G_A/uywanksync -r / /ywank"
+}
+
+
+# ¤go
+function work(){
+	case $1 in
+		ssh )
+			ssh deployer@218.108.75.212
+			;;
+	esac
+}
+
+# ¤ff ¤firefox
+alias winecn='LANG=zh_CN.UTF-8 wine'
+alias wineqq="wine ~/.wine/qq.exe"
+alias ie="wine '/home/guten/.wine/drive_c/Program Files/Internet Explorer/IEXPLORE.exe'"
+
+alias thermal="acpi -t;sudo hddtemp /dev/sda"
+alias cputhermal="acpi -t"
+alias cpufreq="cpufreq-info"
+alias off="sleep 2 && xset dpms force off"
+
+function vm(){
+	case $1 in
+		xp ) qemu-kvm /vm/xp.img -m 256M -vga std -enable-kvm -usb -usbdevice mouse -ctrl-grab $*[2,-1] ;;
+		xp2 ) qemu-kvm /vm/xp2.img -m 1G -vga std -enable-kvm -usb -usbdevice mouse -ctrl-grab $*[2,-1] ;;
+		ubuntu ) qemu-kvm /vm/ubuntu.img -m 1G -vga vmware -enable-kvm -usb -usbdevice mouse -ctrl-grab $*[2,-1] ;;
+	esac
+}
+
+# ¤backup #{{{1
+
+function restore.ywank(){
+	sudo rsync -azHXE --recursive -vh --del --delete-excluded --numeric-ids /uywank/ywank /ywank
+}
+
+#}}}1
+
+# ¤cmds #{{{1
+function less() {
+	[ `wc -l "$1" | awk '{print $1}'` -ge $LINES ] && less "$1" || cat "$1"
+}
+
+# mplayer 
+function mp() {
+	case $1 in
+		music ) mplayer -shuffle $HOME/music/star/* ;;
+	esac
+}
+
+
+function sync(){
+#alias muywank="sudo mount -L uywankRoot /uywank; sudo mount -L uywankBoot /uywank/boot; sudo mount -L uywankUsr /uywank/usr; sudo mount -L uywankHome /uywank/home; sudo mount -L uywankBackup /uywank/backup"
+
+#alias uuywank="sudo umount /uywank/home; sudo umount /uywank/usr; sudo umount /uywank/boot; sudo umount /uywank/backup; sudo umount /uywank"
+
+#alias uywanksync="sudo rsync -avhAHXES --numeric-ids --delete  --exclude-from=$G_A/uywanksync_exclude --files-from=$G_A/uywanksync -r / /uywank"
+
+#alias mywank="sudo mount -L ywankRoot /ywank; sudo mount -L ywankBoot /ywank/boot; sudo mount -L ywankUsr /ywank/usr; sudo mount -L ywankHome /ywank/home"
+
+#alias uywank="sudo umount /ywank/home; sudo umount /ywank/usr; sudo umount /ywank/boot; sudo umount /ywank"
+#alias ywanksync="sudo rsync -avhAHXES --numeric-ids --delete --delete-after  --exclude-from=$G_A/uywanksync_exclude --files-from=$G_A/uywanksync -r / /ywank"
+}
+
+
+# ¤go
+function work(){
+	case $1 in
+		ssh )
+			ssh deployer@218.108.75.212
+			;;
+	esac
+}
+
+# ¤ff ¤firefox
+alias winecn='LANG=zh_CN.UTF-8 wine'
+alias wineqq="wine ~/.wine/qq.exe"
+alias ie="wine '/home/guten/.wine/drive_c/Program Files/Internet Explorer/IEXPLORE.exe'"
+
+alias thermal="acpi -t;sudo hddtemp /dev/sda"
+alias cputhermal="acpi -t"
+alias cpufreq="cpufreq-info"
+alias off="sleep 2 && xset dpms force off"
+
+
+function init(){
+	ali_im &> /var/log/ali_im.log &
+}
+
+
+alias chm=xchm
+
+# ¤mount #{{{1
+function mou(){
+  case $1 in
+    kingall ) mou king; mou kingc ;;
+    king ) mount /dev/king /media/king ;;
+    kingc ) mount -o uid=1000 /dev/kingc /media/kingc ;;
+    camera ) mount /dev/camera /media/camera ;;
+    uywank ) mount /dev/uywank /uywank ;;
+    * ) echo "wrong arguments" ;;
+  esac
+}
+
+function umou(){
+	case $1 in
+		kingall ) umount /media/king; umount /media/kingc ;;
+		kingc )  umount /media/kingc ;;
+		king )  umount /media/king ;;
+    uywank ) umount /uywank ;;
+    camera ) umount /media/camera ;;
+    * ) echo "wrong arguments" ;;
+  esac
+}
+#}}}1
+
+function volume() {
+	case $1 in
+		(on) amixer set Master unmute ;;
+		(off) amixer set Master mute ;;
+		(*) alsamixer ;;
+	esac
+}
+
+alias man3="man 3"
+alias javascript="java -cp /usr/share/java/js.jar org.mozilla.javascript.tools.shell.Main -opt -1"
+
+alias pyvm2="source /opt/python2/bin/activate"
+
+# taw is testawesome
+# taw nil
+# 		guten/rc.lua
+function taw() {
+	configfile="rc.lua"
+	if [[ -n $2 ]] then
+		configfile=$2
+	fi
+
+	killall Xephyr;killall Xephyr;
+	Xephyr -ac -br -noreset -fullscreen :1 &
+	sleep 2
+	DISPLAY=:1.0 awesome --config $configfile
+}
+
+alias gree="egrep --exclude .*"
+alias family_tree="gramps"
+
+alias ncscan="nc -zvw1"
+
+alias o="xdg-open"
+alias r="run"
+alias x="extract"

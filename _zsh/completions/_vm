@@ -1,0 +1,5 @@
+#compdef vm
+
+vms=(xp xp3 ubuntu)
+
+_describe vm vms

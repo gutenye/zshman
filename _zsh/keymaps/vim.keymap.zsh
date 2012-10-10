@@ -1,0 +1,1 @@
+bindkey -A viins main

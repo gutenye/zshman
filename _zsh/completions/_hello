@@ -1,0 +1,14 @@
+#compdef ich bin
+
+_1st_arguments=(
+  'cert:Manage RubyGems certificates and signing settings'
+  'check:Check installed gems'
+  'cleanup:Clean up old versions of installed gems in the local repository'
+)
+
+if (( CURRENT == 2 )); then
+  _describe -t commands "gem subcommand" _1st_arguments
+  return
+fi
+
+ls a

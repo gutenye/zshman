@@ -1,0 +1,7 @@
+#compdef rb19
+
+function _rb19() {
+  compadd `ls -1 $rvm_path/gems | grep "^$ruby19@" | sed -e "s/^$ruby19@//" | awk '{print $1}'`
+}
+
+_rb19

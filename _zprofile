@@ -1,0 +1,67 @@
+export ZSH="$HOME/.zsh"
+source "$ZSH/lib/zcm.zsh"
+zcm_plugins=(); zcm_themes=(); zcm_keymaps=()
+source "$ZSH/Pluginfile"
+
+for name ($zcm_plugins) do
+	file=$ZSH/$name.profile.zsh
+	[[ -e $file ]] && source $file
+done
+
+export PATH="$HOME/bin:$ZSH/bin:$HOME/.gem/ruby/1.9.1/bin:$PATH:$HOME/go/bin"
+export BLOCK_SIZE="human-readable"  # for ls du df
+export SHELL="/bin/zsh"
+export EDITOR="vim"
+export SUDO_USER="guten"
+#export TERM="linux" #for python import readline not has ^[[?1034h
+export DISPLAY=:0.0 #host:display.screen
+export OOO_FORCE_DESKTOP="gnome" 
+export MITSCHEME_LIBRARY_PATH="/usr/local/lib/mit-scheme" 
+export XENVIRONMENT="$HOME/.xrc" 
+export CVSROOT=$HOME/cvsroot
+export GS_LIB="~/.fonts:$GS_LIB"
+export REPORTTIME=10 # print elapsed time when more than 10 seconds
+export ACRO_ALLOW_SUDO=true 
+
+# ¤rb
+#RUBY_VERSION="1.9.1"
+#export RUBY_LIB="/usr/lib/ruby/$RUBY_VERSION"  # user-defined 
+#export RUBY_SITELIB="/usr/lib/ruby/site_ruby/$RUBY_VERSION" # user-defined
+#export RUBYOPT="-r /usr/lib/ruby/gems/1.9.1/gems/pd-1.0.3/lib/pd.rb"
+#export RUBYOPT="-r pd -r ap"
+#export RUBYLIB="" # require
+export JRUBY_OPTS="--1.9"
+#export RBXOPT=-X19  # confict with rvm which use rbx-19mode rbx-18mode.
+
+# python
+#PYTHON_VERSION="3.1"
+#export PYTHON_LIB="/usr/lib/python$PYTHON_VERSION" # user-defined
+#export PYTHON_SITELIB="/usr/lib/python$PYTHON_VERSION" # user-defined
+export PYTHONSTARTUP="$HOME/.pyrc"  # for python interative
+#export PYTHONPATH="$PYTHON_SITELIB/guten:$PYTHON_SITELIB/guten/lib-dynload"    #for import search
+
+# ¤go
+export GOPATH="$HOME/go:$GOPATH"
+
+# for man viewer
+export MANPAGER="/bin/sh -c \"unset PAGER;col -b -x | \
+    vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+
+# clang gcc 
+#export LD_LIBRARY_PATH="$HOME/lib"  # shared object.
+#export LIBRARY_PATH="$HOME/src" # source file when compile
+#export CPATH="$HOME/include"
+
+# user
+export ONE="/home/guten"   
+	export G_A="$ONE/.a"			
+	export G_NOTE="$ONE/note"
+	export G_DOC="$ONE/doc"   
+	export G_DEV="$ONE/dev"   
+	export G_POJ="$ONE/poj"   
+	export G_DOWN="$ONE/downloads"
+
+
+

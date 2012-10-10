@@ -1,0 +1,7 @@
+#compdef rb18
+
+_rb18() {
+  compadd `ls -1 $rvm_path/gems | grep "^$ruby18@" | sed -e "s/^$ruby18@//" | awk '{print $1}'`
+}
+
+_rb18

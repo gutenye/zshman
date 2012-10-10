@@ -1,0 +1,21 @@
+#!/bin/zsh
+
+# run a gui app in terminal.
+#
+# Usage:
+#   run APP ARGS ..
+#
+# Configure file: ~/.applications
+#
+
+app=$1
+shift
+
+source ~/.applications
+
+if (( ${+apps[$app]} )); then
+  cmd=$apps[$app]
+  $cmd &>/dev/null &
+else
+  $app $* &>/dev/null &
+fi

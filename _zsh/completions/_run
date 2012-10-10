@@ -1,0 +1,7 @@
+#compdef run
+
+source ~/.applications
+
+run_cmds=(${(k)apps} $names)
+
+_describe 'run' run_cmds

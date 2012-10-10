@@ -1,0 +1,7 @@
+_.fullname = "zcm/default"
+_.type = "theme"
+_.description = "default theme for zcm"
+_.homepage = "https://github.com/zcm/theme-default"
+_.snapshot = "https://raw.github.com/zcm/theme-default/master/snapshot.jpg"
+
+# vim: filetype=ruby

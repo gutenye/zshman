@@ -1,0 +1,3 @@
+#compdef ce
+
+_files -W $G_DEV

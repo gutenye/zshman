@@ -1,0 +1,3 @@
+#compdef cd~
+
+_files -W $HOME
