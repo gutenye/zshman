@@ -17,7 +17,7 @@ This is the version 2.0 of ZCM, And it's still under development. You can find v
   *edit ~/.zsh/git.zsh instead of ~/.zsh/plugins/git/git.plugin.zsh*
 
 - Full Control. <br>
-  *you can edit any file in any way. It uses git branch to track updates.*
+  *you can add/modify/remove any file in any way. It uses a seperate git branch to track updates.*
 
 - Plugin system. <br>
   *enable/disable a plugin is easy.*
