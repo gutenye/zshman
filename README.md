@@ -1,6 +1,16 @@
 ZCM, Zsh Configuraton Manager
 =============================
 
+This is version 2.0 of ZCM, It's still under development.
+
+Install
+
+Edit	~/.vim/filetype.vim
+
+	au! BufNewFile,BufRead ~/.zsh/completion/*   setfiletype zsh 
+
+
+
 Website: [zcm.heroku.com](http://zcm.heroku.com). website [source code](https://github.com/zcm/zcm-website)
 
 follow us on [Twitter](http://twitter.com/zshzcm)

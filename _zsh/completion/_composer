@@ -1,0 +1,9 @@
+#compdef composer
+
+_composer_get_command_list () {
+	composer --no-ansi | sed "1,/Available commands/d" | awk '/^  [a-z]+/ { print $1 }'
+}
+
+if [ -f composer.json ]; then
+	compadd `_composer_get_command_list`
+fi

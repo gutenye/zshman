@@ -1,4 +1,4 @@
-zsh_require theme/svn
+source "$ZSH/lib/theme/svn.zsh"
 
 local svn
 helper+='$svn'

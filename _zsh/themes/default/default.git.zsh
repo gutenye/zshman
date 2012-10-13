@@ -1,4 +1,4 @@
-zsh_require theme/git
+source "$ZSH/lib/theme/git.zsh"
 
 local git_info git_status
 helper+='$git_info$git_status'

@@ -1,4 +1,4 @@
-zsh_require theme/ssh
+source "$ZSH/lib/theme/ssh.zsh"
 
 local ssh
 helper+='$ssh'

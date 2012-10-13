@@ -1,5 +1,3 @@
-# Based on ssh-agent code
-
 local GPG_ENV=$HOME/.gnupg/gpg-agent.env
 
 function start_agent {

@@ -5,13 +5,13 @@
 # Usage:
 #   run APP ARGS ..
 #
-# Configure file: ~/.applications
+# Configure file: ~/.runrc
 #
 
 app=$1
 shift
 
-source ~/.applications
+source ~/.runrc
 
 if (( ${+apps[$app]} )); then
   cmd=$apps[$app]

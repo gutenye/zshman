@@ -1,3 +1,5 @@
+#source "$ZSH/rbenv.osx.zsh"
+
 function rb.19() {
   RBENV_VERSION=1.9.2-p290 $*
 }

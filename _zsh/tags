@@ -1,0 +1,161 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+__git_branch_names	git-flow.zsh	/^__git_branch_names () {$/;"	f
+__git_command_successful	git-flow.zsh	/^__git_command_successful () {$/;"	f
+__git_flow_feature_list	git-flow.zsh	/^__git_flow_feature_list ()$/;"	f
+__git_flow_hotfix_list	git-flow.zsh	/^__git_flow_hotfix_list ()$/;"	f
+__git_flow_version_list	git-flow.zsh	/^__git_flow_version_list ()$/;"	f
+__git_remotes	git-flow.zsh	/^__git_remotes () {$/;"	f
+__gnu_utils	gnu-utils.zsh	/^  __gnu_utils() {$/;"	f
+__theme__	lib/plugin.zsh	/^    function __theme__(){$/;"	f
+_gradle_arguments	gradle.zsh	/^function _gradle_arguments() {$/;"	f
+_gradle_core_commands	gradle.zsh	/^function _gradle_core_commands() {$/;"	f
+_gradle_does_task_list_need_generating	gradle.zsh	/^_gradle_does_task_list_need_generating () {$/;"	f
+_gradle_tasks	gradle.zsh	/^_gradle_tasks () {$/;"	f
+_gradlew_tasks	gradle.zsh	/^_gradlew_tasks () {$/;"	f
+_history	scripts/history-substring-search.zsh	/^function _history-substring-search-begin() {$/;"	f
+_history	scripts/history-substring-search.zsh	/^function _history-substring-search-down-buffer() {$/;"	f
+_history	scripts/history-substring-search.zsh	/^function _history-substring-search-down-history() {$/;"	f
+_history	scripts/history-substring-search.zsh	/^function _history-substring-search-down-search() {$/;"	f
+_history	scripts/history-substring-search.zsh	/^function _history-substring-search-end() {$/;"	f
+_history	scripts/history-substring-search.zsh	/^function _history-substring-search-up-buffer() {$/;"	f
+_history	scripts/history-substring-search.zsh	/^function _history-substring-search-up-history() {$/;"	f
+_history	scripts/history-substring-search.zsh	/^function _history-substring-search-up-search() {$/;"	f
+_per	pre-directory-history.zsh	/^function _per-directory-history-addhistory() {$/;"	f
+_per	pre-directory-history.zsh	/^function _per-directory-history-change-directory() {$/;"	f
+_per	pre-directory-history.zsh	/^function _per-directory-history-set-directory-history() {$/;"	f
+_per	pre-directory-history.zsh	/^function _per-directory-history-set-global-history() {$/;"	f
+_plugin__start_agent	ssh-agent.zsh	/^function _plugin__start_agent()$/;"	f
+_rails_command	rails.zsh	/^function _rails_command () {$/;"	f
+_rbfu_rubies_print	rbfu.zsh	/^  function _rbfu_rubies_print() {$/;"	f
+_symfony2	symfony2.zsh	/^_symfony2 () {$/;"	f
+_symfony2_get_command_list	symfony2.zsh	/^_symfony2_get_command_list () {$/;"	f
+_zsh_highlight	scripts/history-substring-search.zsh	/^  function _zsh_highlight() {$/;"	f
+abd	debain.zsh	/^    abd() {$/;"	f
+ai	debain.zsh	/^    ai() {$/;"	f
+ap	debain.zsh	/^    ap() {$/;"	f
+ar	debain.zsh	/^    ar() {$/;"	f
+battery_pct_prompt	battery.zsh	/^  function battery_pct_prompt() { echo '' }$/;"	f
+battery_pct_prompt	battery.zsh	/^  function battery_pct_prompt() {$/;"	f
+battery_pct_remaining	battery.zsh	/^  function battery_pct_remaining() { echo "$(acpi | cut -f2 -d ',' | tr -cd '[:digit:]')" }$/;"	f
+battery_pct_remaining	battery.zsh	/^  function battery_pct_remaining() { echo $error_msg }$/;"	f
+battery_time_remaining	battery.zsh	/^  function battery_time_remaining() { echo $(acpi | cut -f3 -d ',') }$/;"	f
+battery_time_remaining	battery.zsh	/^  function battery_time_remaining() { echo $error_msg }$/;"	f
+build_prompt	lib/theme.zsh	/^function build_prompt(){$/;"	f
+cd	virtualenvwrapper.zsh	/^      function cd {$/;"	f
+cdf	osx.zsh	/^function cdf() {$/;"	f
+chpwd	terminalapp.zsh	/^function chpwd {$/;"	f
+current_branch	git.zsh	/^function current_branch() {$/;"	f
+current_gemset	rbenv.zsh	/^    function current_gemset() {$/;"	f
+current_repository	git.zsh	/^function current_repository() {$/;"	f
+current_ruby	rbenv.zsh	/^    function current_ruby() {$/;"	f
+decode64	utils.zsh	/^function decode64(){ echo -n $1 | base64 -D }$/;"	f
+description	sprunge.zsh	/^description() {$/;"	f
+empty_gh	github.zsh	/^empty_gh() { # [NAME_OF_REPO]$/;"	f
+encode64	utils.zsh	/^function encode64(){ echo -n $1 | base64 }$/;"	f
+exist_gh	github.zsh	/^exist_gh() { # [DIRECTORY]$/;"	f
+gdv	git.zsh	/^gdv() { git diff -w "$@" | view - }$/;"	f
+gem	rvm.zsh	/^function gem(){$/;"	f
+gems	rbenv.zsh	/^    function gems {$/;"	f
+gems	rvm.zsh	/^function gems {$/;"	f
+gemsets	rbenv.zsh	/^  function gemsets() { echo 'not supported' }$/;"	f
+git	github.zsh	/^    function git(){$/;"	f
+git_current_branch	lib/theme/git.zsh	/^function git_current_branch() {$/;"	f
+git_prompt_ahead	lib/theme/git.zsh	/^function git_prompt_ahead() {$/;"	f
+git_prompt_info	lib/theme/git.zsh	/^function git_prompt_info() {$/;"	f
+git_prompt_long_sha	lib/theme/git.zsh	/^function git_prompt_long_sha() {$/;"	f
+git_prompt_short_sha	lib/theme/git.zsh	/^function git_prompt_short_sha() {$/;"	f
+git_prompt_status	lib/theme/git.zsh	/^function git_prompt_status() {$/;"	f
+hash	gnu-utils.zsh	/^  function hash() {$/;"	f
+history	scripts/history-substring-search.zsh	/^function history-substring-search-down() {$/;"	f
+history	scripts/history-substring-search.zsh	/^function history-substring-search-up() {$/;"	f
+in_gradle	gradle.zsh	/^function in_gradle() {$/;"	f
+in_svn	svn.zsh	/^function in_svn() {$/;"	f
+ipa	iproute2.zsh	/^function ipa(){$/;"	f
+ipaddrl	iproute2.zsh	/^function ipaddrl(){$/;"	f
+ipl	iproute2.zsh	/^function ipl(){$/;"	f
+ipma	iproute2.zsh	/^function ipma(){$/;"	f
+ipmo	iproute2.zsh	/^function ipmo(){$/;"	f
+ipmr	iproute2.zsh	/^function ipmr(){$/;"	f
+ipn	iproute2.zsh	/^function ipn(){$/;"	f
+ipr	iproute2.zsh	/^function ipr(){$/;"	f
+ipru	iproute2.zsh	/^function ipru(){$/;"	f
+ipt	iproute2.zsh	/^function ipt(){$/;"	f
+kapow	pow.zsh	/^kapow(){$/;"	f
+kerndeb	debain.zsh	/^kerndeb () {$/;"	f
+keymap	lib/zcm.zsh	/^function keymap(){$/;"	f
+man	osx.zsh	/^function man-preview() {$/;"	f
+new_gh	github.zsh	/^new_gh() { # [DIRECTORY]$/;"	f
+newpl	perl.zsh	/^newpl () {$/;"	f
+node	node.zsh	/^function node-docs {$/;"	f
+open_jira_issue	jira.zsh	/^open_jira_issue () {$/;"	f
+ordinary	scripts/history-substring-search.zsh	/^  function ordinary-key-press() {$/;"	f
+pacdisowned	pacman.zsh	/^pacdisowned() {$/;"	f
+paclist	pacman.zsh	/^paclist() {$/;"	f
+parse_git_dirty	lib/theme/git.zsh	/^function parse_git_dirty() {$/;"	f
+per	pre-directory-history.zsh	/^function per-directory-history-toggle-history() {$/;"	f
+pfd	osx.zsh	/^function pfd() {$/;"	f
+pfs	osx.zsh	/^function pfs() {$/;"	f
+pgs	perl.zsh	/^pgs() { # [find] [replace] [filename]$/;"	f
+plugin	lib/zcm.zsh	/^function plugin(){$/;"	f
+powit	pow.zsh	/^powit(){$/;"	f
+precmd	screen.zsh	/^  function precmd()$/;"	f
+precmd	sysupgrade.zsh	/^function precmd(){$/;"	f
+preexec	screen.zsh	/^  function preexec()$/;"	f
+prep	perl.zsh	/^prep() { # [pattern] [filename unless STDOUT]$/;"	f
+prompt_user_info	themes/local/local.user.zsh	/^function prompt_user_info(){$/;"	f
+pushdf	osx.zsh	/^function pushdf() {$/;"	f
+quick	osx.zsh	/^function quick-look() {$/;"	f
+quick_svn_prompt_info	lib/theme/svn.zsh	/^function quick_svn_prompt_info(){ $/;"	f
+rack_root_detect	pow.zsh	/^rack_root_detect(){$/;"	f
+rb	rbenv.zsh	/^function rb.18() {$/;"	f
+rb	rbenv.zsh	/^function rb.19() {$/;"	f
+rb	rbenv.zsh	/^function rb.jruby() {$/;"	f
+rb	rbenv.zsh	/^function rb.rbx(){$/;"	f
+rb18	rvm.zsh	/^function rb18 {$/;"	f
+rb19	rvm.zsh	/^function rb19 {$/;"	f
+rbenv_prompt_info	rbenv.zsh	/^    function rbenv_prompt_info() {$/;"	f
+rbenv_prompt_info	rbenv.zsh	/^  function rbenv_prompt_info() { echo "system: $(ruby -v | cut -f-2 -d ' ')" }$/;"	f
+rbenv_version	themes/local/local.rbenv.zsh	/^function rbenv_version(){$/;"	f
+rbfu	rbfu.zsh	/^  function rbfu-rubies() {$/;"	f
+rehash	gnu-utils.zsh	/^  function rehash() {$/;"	f
+replace_prompt_name	lib/theme.zsh	/^function replace_prompt_name(){$/;"	f
+rvm	rvm.zsh	/^function rvm-link-completion {$/;"	f
+rvm	rvm.zsh	/^function rvm-update {$/;"	f
+rvm_prompt_info	lib/theme/rvm.zsh	/^function rvm_prompt_info(){$/;"	f
+say	perl.zsh	/^say() {$/;"	f
+screen_set	screen.zsh	/^  function screen_set()$/;"	f
+sprunge	sprunge.zsh	/^sprunge() {$/;"	f
+ssh_prompt_info	lib/theme/ssh.zsh	/^function ssh_prompt_info(){$/;"	f
+start_agent	gpg-agent.zsh	/^function start_agent {$/;"	f
+svn_dirty	lib/theme/svn.zsh	/^function svn_dirty(){$/;"	f
+svn_dirty	svn.zsh	/^function svn_dirty {$/;"	f
+svn_dirty_choose	svn.zsh	/^function svn_dirty_choose {$/;"	f
+svn_get_repo_name	lib/theme/svn.zsh	/^function svn_get_repo_name(){$/;"	f
+svn_get_repo_name	svn.zsh	/^function svn_get_repo_name {$/;"	f
+svn_get_rev_nr	lib/theme/svn.zsh	/^function svn_get_rev_nr(){$/;"	f
+svn_get_rev_nr	svn.zsh	/^function svn_get_rev_nr {$/;"	f
+svn_prompt_info	lib/theme/svn.zsh	/^function svn_prompt_info(){$/;"	f
+svn_prompt_info	svn.zsh	/^function svn_prompt_info {$/;"	f
+tab	osx.zsh	/^function tab() {$/;"	f
+theme	lib/zcm.zsh	/^function theme(){$/;"	f
+tm	textmate.zsh	/^function tm() {$/;"	f
+trash	osx.zsh	/^function trash() {$/;"	f
+upgrade	pacman.zsh	/^upgrade() {$/;"	f
+usage	sprunge.zsh	/^usage() {$/;"	f
+view	view.zsh	/^function view(){$/;"	f
+vundle	vundle.zsh	/^function vundle () {$/;"	f
+vundle	vundle.zsh	/^function vundle-init () {$/;"	f
+vundle	vundle.zsh	/^function vundle-update () {$/;"	f
+workon_cwd	virtualenvwrapper.zsh	/^      function workon_cwd {$/;"	f
+zset	lib/zcm.zsh	/^function zset(){$/;"	f
+zset_default	lib/zcm.zsh	/^function zset_default(){$/;"	f
+zset_parse	lib/zcm.zsh	/^function zset_parse(){$/;"	f
+zsh_init_keymap	lib/plugin.zsh	/^function zsh_init_keymap(){$/;"	f
+zsh_init_plugin	lib/plugin.zsh	/^function zsh_init_plugin(){$/;"	f
+zsh_init_theme	lib/plugin.zsh	/^function zsh_init_theme(){$/;"	f
+zsh_require	lib/zcm.zsh	/^function zsh_require(){$/;"	f

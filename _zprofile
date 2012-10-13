@@ -1,12 +1,5 @@
 export ZSH="$HOME/.zsh"
-source "$ZSH/lib/zcm.zsh"
-zcm_plugins=(); zcm_themes=(); zcm_keymaps=()
-source "$ZSH/Pluginfile"
-
-for name ($zcm_plugins) do
-	file=$ZSH/$name.profile.zsh
-	[[ -e $file ]] && source $file
-done
+source "$ZSH/lib/zprofile.zsh"
 
 export PATH="$HOME/bin:$ZSH/bin:$HOME/.gem/ruby/1.9.1/bin:$PATH:$HOME/go/bin"
 export BLOCK_SIZE="human-readable"  # for ls du df
@@ -22,6 +15,14 @@ export CVSROOT=$HOME/cvsroot
 export GS_LIB="~/.fonts:$GS_LIB"
 export REPORTTIME=10 # print elapsed time when more than 10 seconds
 export ACRO_ALLOW_SUDO=true 
+export PAGER=less
+export MANPAGER="/bin/sh -c \"unset PAGER;col -b -x | \
+    vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+export LC_CTYPE=en_US.UTF-8
+export GREP_OPTIONS="--color=auto"
+export GREP_COLOR="37;45"
 
 # ¤rb
 #RUBY_VERSION="1.9.1"
@@ -43,12 +44,6 @@ export PYTHONSTARTUP="$HOME/.pyrc"  # for python interative
 # ¤go
 export GOPATH="$HOME/go:$GOPATH"
 
-# for man viewer
-export MANPAGER="/bin/sh -c \"unset PAGER;col -b -x | \
-    vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
-    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
-    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
-
 # clang gcc 
 #export LD_LIBRARY_PATH="$HOME/lib"  # shared object.
 #export LIBRARY_PATH="$HOME/src" # source file when compile
@@ -62,6 +57,3 @@ export ONE="/home/guten"
 	export G_DEV="$ONE/dev"   
 	export G_POJ="$ONE/poj"   
 	export G_DOWN="$ONE/downloads"
-
-
-

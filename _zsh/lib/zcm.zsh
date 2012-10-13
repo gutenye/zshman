@@ -1,34 +1,3 @@
-# require a file.
-# use $loadpath
-#
-# zsh_require tagen/foo  #=> foo.zsh
-# zsh_require /absolute/path
-#
-function zsh_require(){
-  local pathdesc path1
-  pathdesc=$1
-
-  if [[ $pathdesc =~ "^/" ]]; then
-    [[ -e $pathdesc ]] && path1=$pathdesc
-  else
-    [[ $pathdesc =~ ".zsh$" ]] && pathdesc=$pathdesc || pathdesc+=".zsh"
-    for dir in $loadpath; do
-      if [[ -e $dir/$pathdesc ]]; then
-       path1=$dir/$pathdesc
-       break
-     fi
-    done
-  fi
-
-  if [[ -z $path1 ]]; then
-    echo "Error: can't find file -- $1"
-    return
-  fi
-
-  eval "function __require__(){ $(cat $path1) }"
-  __require__
-}
-
 # zset a zcm option.
 #
 # == zset
@@ -42,23 +11,37 @@ function zsh_require(){
 #  $rc[key]
 #
 function zset(){
-  zset_parse name value $*
+  _zset_parse name value $*
 
   rc+=($name $value)
 }
 
-# not overwrite exsiting value.
+# set value if no exists.
 function zset_default(){
-  zset_parse name value $*
+  _zset_parse name value $*
 
   rc=($name $value ${(@kv)rc})
 }
 
-# private
+# used in Pluginfile
+function plugin(){
+  zcm_plugins=($zcm_plugins $1)
+}
+
+function theme(){
+  zcm_themes=($zcm_themes $1)
+}
+
+function keymap(){
+  zcm_keymaps=($zcm_keymaps $1)
+}
+
+## private
+##
+
+# _zset_parse name value *args
 #
-# zset_parse name value *args
-#
-function zset_parse(){
+function _zset_parse(){
   local  __name=$1
   local  __value=$2
   shift; shift
@@ -77,16 +60,3 @@ function zset_parse(){
   eval $__value=\$value
 }
 
-
-# used in Pluginfile
-function plugin(){
-  zcm_plugins=($zcm_plugins $1)
-}
-
-function theme(){
-  zcm_themes=($zcm_themes $1)
-}
-
-function keymap(){
-  zcm_keymaps=($zcm_keymaps $1)
-}

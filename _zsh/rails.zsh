@@ -1,13 +1,5 @@
 # Rails 3 aliases, backwards-compatible with Rails 2.
 
-function _bundle_command {
-  if command -v bundle && [ -e "Gemfile" ]; then
-    bundle exec $@
-  else
-    $@
-  fi
-}
-
 function _rails_command () {
   if [ -e "script/server" ]; then
     ruby script/$@
@@ -16,15 +8,16 @@ function _rails_command () {
   fi
 }
 
-alias sc='_rails_command console'
-alias sd='_rails_command destroy'
-alias sdb='_rails_command dbconsole'
-alias sdbm='rake db:migrate db:test:clone'
-alias sg='_rails_command generate'
-alias sp='_rails_command plugin'
-alias ss='_rails_command server'
-alias ssd='_rails_command server --debugger'
+alias rc='_rails_command console'
+alias rd='_rails_command destroy'
+alias rdb='_rails_command dbconsole'
+alias rdbm='rake db:migrate db:test:clone'
+alias rg='_rails_command generate'
+alias rgm='_rails_command generate migration'
+alias rp='_rails_command plugin'
+alias ru='_rails_command runner'
+alias rs='_rails_command server'
+alias rsd='_rails_command server --debugger'
 alias devlog='tail -f log/development.log'
-
-alias rspec='_bundle_command rspec'
-alias cuke='_bundle_command cucumber'
+alias rdm='rake db:migrate'
+alias rdr='rake db:rollback'

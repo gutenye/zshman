@@ -2,19 +2,25 @@
 #theme default.rvm.ssh.git.svn # rvm, svn are slow.
 theme local.user.rbenv.ssh.git
 
-keymap vim # local
+keymap vim 
+#keymap local
 
+plugin utils 
+plugin archlinux
+plugin systemd
 plugin autojump
 plugin iproute2
-plugin pacman
+#plugin ssh-agent
 
+plugin ruby
+  plugin rails
+  plugin rbenv
+  #plugin rvm
+plugin python
+plugin node
+
+plugin vim
 plugin git
 #plugin github
-plugin ssh-agent
-plugin rails
-plugin bundler
-plugin npm
-#plugin rvm
-plugin rbenv
 
 # vim: filetype=zsh

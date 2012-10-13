@@ -1,0 +1,14 @@
+#compdef npm
+# from npm completion
+
+COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
+COMP_WORDBREAKS=${COMP_WORDBREAKS/@/}
+export COMP_WORDBREAKS
+
+si=$IFS
+compadd -- $(COMP_CWORD=$((CURRENT-1)) \
+             COMP_LINE=$BUFFER \
+             COMP_POINT=0 \
+             npm completion -- "${words[@]}" \
+             2>/dev/null)
+IFS=$si

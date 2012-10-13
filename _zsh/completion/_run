@@ -1,6 +1,6 @@
 #compdef run
 
-source ~/.applications
+source ~/.runrc
 
 run_cmds=(${(k)apps} $names)
 

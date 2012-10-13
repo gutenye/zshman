@@ -1,4 +1,4 @@
-zsh_require theme/rvm
+source "$ZSH/lib/theme/rvm.zsh"
 
 local rvm
 helper+='$rvm'
