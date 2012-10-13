@@ -3,19 +3,22 @@ ZCM, A simple Zsh Configuraton Manager
 
 This is the version 2.0 of ZCM, And it's still under development. You can find version 1.0 at [here](https://github.com/zcm/zcm)
 
+
+
+
 **Features**
 
-- Simple.
-  edit ~/.zsh/git.zsh instead of ~/.zsh/plugins/git/git.plugin.zsh
+- Simple. <br>
+  *edit ~/.zsh/git.zsh instead of ~/.zsh/plugins/git/git.plugin.zsh*
 
-- Full Control.
-  you can edit any file in any way. Because it uses git branch to track updates.
+- Full Control. <br>
+  *you can edit any file in any way. It uses git branch to track updates.*
 
-- Plugin system.
-  enable/disable a plugin is easy.
+- Plugin system. <br>
+  *enable/disable a plugin is easy.*
   
-- Theme system.
-  write your own theme is quite easy.
+- Theme system. <br>
+  *write your own theme is quite easy.*
 
 Getting Started
 ---------------
@@ -32,12 +35,11 @@ ZCM Layout
 		keymaps/           # keymap files
 
 		completion/        # all completions file are putted here. e.g. _foo
-    bin/               # user made scripts
+ 	bin/               # user made scripts
 
 the `~/.zsh/Pluginfile` file
 
-	theme default.rbenv.ssh.git
-	
+	theme default.rbenv.ssh.git	
 	keymap vim
 
 	plugin git
