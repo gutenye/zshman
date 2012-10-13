@@ -1,3 +1,19 @@
+
+# print debug
+#
+# @example
+#
+#  a=(a 'b c' d)
+#  pd $a                  ->  a b\ c d
+#
+#  typeset -A b
+#  b=(a 1 b '2 3' c 4)
+#  pd ${(kv)b}           -> a 1 b 2\ 3 c 4
+function pd(){
+  printf '%q ' $*
+  printf '\n'
+}
+
 # zset a zcm option.
 #
 # == zset
