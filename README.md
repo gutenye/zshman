@@ -1,10 +1,15 @@
 ZCM, A simple Zsh Configuraton Manager
 ======================================
 
+|                |                                       |
+|----------------|---------------------------------------|
+| Homepage:      | https://github.com/GutenYe/zcm        |
+| Author:	       | Guten                                 |
+| License:       | MIT License                           |
+| Documentation: | https://github.com/GutenYe/zcm/wiki   |
+| Issue Tracker: | https://github.com/GutenYe/zcm/issues |
+
 This is the version 2.0 of ZCM, And it's still under development. You can find version 1.0 at [here](https://github.com/zcm/zcm)
-
-
-
 
 **Features**
 
@@ -35,7 +40,7 @@ ZCM Layout
 		keymaps/           # keymap files
 
 		completion/        # all completions file are putted here. e.g. _foo
- 	bin/               # user made scripts
+		bin/               # user made scripts
 
 the `~/.zsh/Pluginfile` file
 
@@ -47,23 +52,25 @@ the `~/.zsh/Pluginfile` file
 
 That's all :) 
 
+Read more about it at [Documentation](https://github.com/GutenYe/zcm/wiki).
+
 Install
 --------
 
-Backup origin zsh configuration files.
+**Backup original zsh configuration files**
 
 	$ cd ~
 	$ mv .zshrc .zshrc-bak
 	$ mv .zsh .zsh-bak
 	$ mv .zprofile .zprofile-bak
-	$ mv .zlogin .zlogin-bak
-	$ mv .zlogout .zlogout-bak
 
-Download this reposiory and extract it.
+**Download this repository**
 
 	$ cp _zshrc ~/.zshrc
 	$ cp _zsh ~/.zsh
 	$ cp _zprofile ~/.zprofile
+
+**Syntax Highlight in vim**
 
 Edit `~/.vim/filetype.vim`
 
@@ -95,3 +102,33 @@ Update
 	$ git merge origin/master 
 
 [meld](http://meldmerge.org): a visual diff and merge tool.
+
+Development
+===========
+
+Contributing
+------------
+
+* Submit any bugs/features/ideas to github issue tracker.
+
+Please see [Contibution Documentation](https://github.com/GutenYe/zcm/blob/master/CONTRIBUTING.md).
+
+A list of [Contributors](https://github.com/GutenYe/zcm/contributors).
+
+Resources
+---------
+
+* [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh): A community-driven framework for managing your zsh configuration.
+
+Copyright
+---------
+
+(the MIT License)
+
+Copyright (c) 2012 Guten
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
