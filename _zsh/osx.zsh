@@ -1,3 +1,16 @@
+# Mac OS X: Apple Operation System.
+# Homepage: http://www.apple.com/osx/
+
+# Set Apple Terminal.app resume directory
+# based on this answer: http://superuser.com/a/315029
+function chpwd {
+  local SEARCH=' '
+  local REPLACE='%20'
+  local PWD_URL="file://$HOSTNAME${PWD//$SEARCH/$REPLACE}"
+  printf '\e]7;%s\a' "$PWD_URL"
+}
+chpwd
+
 alias brews='brew list -1'
 
 function tab() {

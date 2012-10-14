@@ -1,4 +1,5 @@
-# Symfony2 basic command completion
+# Symfony is a PHP framework for web projects.
+# Homepage: http://symfony.com/ 
 
 _symfony2_get_command_list () {
 	app/console --no-ansi | sed "1,/Available commands/d" | awk '/^  [a-z]+/ { print $1 }'

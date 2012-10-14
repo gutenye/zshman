@@ -10,7 +10,7 @@ plugin autojump
 
 plugin archlinux
   #plugin yaourt
-#plugin debain
+#plugin debian
 #plugin fedora
 plugin systemd
 plugin iproute2

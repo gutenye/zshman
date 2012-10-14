@@ -1,3 +1,6 @@
+# Taskwarrior is a command-line todo list manager.
+# Homepage: http://taskwarrior.org/
+
 ################################################################################
 # Author: Pete Clark
 # Email: pete[dot]clark[at]gmail[dot]com
@@ -12,10 +15,10 @@
 # gives a list of available modifications for that task, etc.
 ################################################################################
 
-zstyle ':completion:*:*:task:*' verbose yes
-zstyle ':completion:*:*:task:*:descriptions' format '%U%B%d%b%u'
+zstyle ":completion:*:*:task:*" verbose yes
+zstyle ":completion:*:*:task:*:descriptions" format "%U%B%d%b%u"
 
-zstyle ':completion:*:*:task:*' group-name ''
+zstyle ":completion:*:*:task:*" group-name ""
 
-alias t=task
+alias t="task"
 compdef _task t=task

@@ -1,4 +1,6 @@
-# ¤vundle
+# Vundle, the plug-in manager for Vim 
+# Homepage: https://github.com/gmarik/vundle
+
 function vundle-init () {
   if [ ! -d ~/.vim/bundle/vundle/ ]
   then

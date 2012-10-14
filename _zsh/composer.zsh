@@ -1,4 +1,5 @@
-# getcomposer.org
+# composer: Dependency Manager for PHP 
+# Homepage: http://getcomposer.org
 
 alias c="composer"
 alias csu="composer self-update"

@@ -1,3 +1,6 @@
+# systemd is a system and service manager for Linux.
+# Homepage: http://www.freedesktop.org/wiki/Software/systemd
+
 alias halt="$sudo systemctl halt"
 alias reboot="$sudo systemctl reboot"
 alias suspend="$sudo systemctl suspend"

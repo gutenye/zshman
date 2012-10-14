@@ -1,7 +1,4 @@
-# need brew
-#
-# TODO: startup is very slow.
-#
+# TODO: source the file is very slow.
 
 FOUND_RBENV=0
 rbenvdirs=("$HOME/.rbenv" "/usr/local/rbenv" "/opt/rbenv")

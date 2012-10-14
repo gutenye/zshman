@@ -1,3 +1,6 @@
+# Fedora is a fast, stable, and powerful operating system for everyday use built by a worldwide community of friends. 
+# Homepage: http://www.fedoraproject.org/
+
 alias ys="yum search"                       # search package
 alias yp="yum info"                         # show package info
 alias yl="yum list"                         # list packages

@@ -1,3 +1,6 @@
+# Debian: is a free operating system (OS) for your computer. 
+# Homepage: http://www.debian.org/
+
 [[ -e $( which aptitude ) ]] && _apt_bin="aptitude" || _apt_bin="apt-get"
 
 # Aliases ###################################################################

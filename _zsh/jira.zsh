@@ -1,3 +1,6 @@
+# Jira: is a proprietary issue tracking product, developed by Atlassian.
+# Homepage: http://www.atlassian.com/software/jira/overview/
+
 # To use: add a .jira-url file in the base of your project
 # Setup: cd to/my/project
 #        echo "https://name.jira.com" >> .jira-url

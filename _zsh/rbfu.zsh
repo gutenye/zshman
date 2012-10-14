@@ -1,3 +1,6 @@
+# rbfu: Minimal Ruby version management is minimal.
+# Homepage: https://github.com/hmans/rbfu
+
 # Enables rbfu with --auto option, if available.
 #
 # Also provides a command to list all installed/available

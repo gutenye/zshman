@@ -1,4 +1,6 @@
-# Mercurial
+# Mercurial is a distributed version control system. 
+# Homepage: http://mercurial.selenic.com/
+
 alias hgc='hg commit'
 alias hgb='hg branch'
 alias hgba='hg branches'

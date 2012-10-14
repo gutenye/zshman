@@ -1,3 +1,6 @@
+# sprunge is a command line pastebin.
+# Homepage: http://sprunge.us/
+
 # Contributed and SLIGHTLY modded by Matt Parnell/ilikenwf <parwok -at- gmail>
 # Created by the blogger at the URL below...I don't know where to find his/her name
 # Original found at http://www.shellperson.net/sprunge-pastebin-script/

@@ -1,3 +1,6 @@
+# Screen is a full-screen window manager that multiplexes a physical terminal between several processes.
+# Homepage: http://www.gnu.org/software/screen/
+
 local screenrc
 if [[ "$TERM" == 'xterm-color' ]]; then
   if [[ -e "$HOME/.screenrc" ]]; then

@@ -1,12 +1,15 @@
-alias pd='perldoc'
-alias ple='perl -wlne'
+# Perl is a high-level, general-purpose, interpreted, dynamic programming language.
+# Homepage: http://www.perl.org/
+
+alias pd="perldoc"
+alias ple="perl -wlne"
 
 # perlbrew
-alias pbi='perlbrew install'
-alias pbl='perlbrew list'
-alias pbo='perlbrew off'
-alias pbs='perlbrew switch'
-alias pbu='perlbrew use'
+alias pbi="perlbrew install"
+alias pbl="perlbrew list"
+alias pbo="perlbrew off"
+alias pbs="perlbrew switch"
+alias pbu="perlbrew use"
 
 # show the latest stable release of Perl
 alias latest-perl='curl -s http://www.perl.org/get.html | perl -wlne '\''if (/perl\-([\d\.]+)\.tar\.gz/) { print $1; exit;}'\'

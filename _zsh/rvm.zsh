@@ -1,12 +1,8 @@
+# RVM is a Ruby Version Manager.
+# Homepage: https://rvm.io/
+
 [[ -e "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm"
 [[ -e "~/.rvm/scripts/rvm" ]] && source "~/.rvm/scripts/rvm"
-
-function gem(){
-	case $1 in
-		install | uninstall | update ) sudo gem $* ;;
-		* ) command gem $* ;;
-	esac
-}
 
 alias rubies='rvm list rubies'
 alias gemsets='rvm gemset list'

@@ -1,3 +1,6 @@
+# Ruby on Rails is an open-source web framework that's optimized for programmer happiness and sustainable productivity.
+# Homepage: http://rubyonrails.org/
+
 function _rails_command () {
   if [ -e "script/server" ]; then
     ruby script/$@

@@ -22,6 +22,22 @@ setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 # setopt share_history
+
+# history-substring-search
+#source "$ZSH/scripts/history-substring-search.zsh"
+
+# per-directory-history
+#source "$ZSH/scripts/history-substring-search.zsh"
+
+#if test "$CASE_SENSITIVE" = true; then
+#  unset HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS
+#fi
+#
+#if test "$DISABLE_COLOR" = true; then
+#  unset HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND
+#  unset HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND
+#fi
+
 #}}}1
 
 # ¤ls
@@ -49,6 +65,7 @@ function mkdcd() {
   mkdir -p "$1"
   cd "$1"
 }
+
 function cdll() {
   if [[ -n "$1" ]]; then
     builtin cd "$1"

@@ -1,3 +1,6 @@
+# GitHub is a web-based hosting service for software development projects that use the Git revision control system. 
+# Homepage: https://github.com/
+
 # Setup hub function for git, if it is available; http://github.com/defunkt/hub
 if [ "$commands[(I)hub]" ] && [ "$commands[(I)ruby]" ]; then
     # eval `hub alias -s zsh`

@@ -1,5 +1,7 @@
+# Pow is a zero-config Rack server for Mac OS X. 
+# Homepage: http://pow.cx/
+
 # Restart a rack app running under pow
-# http://pow.cx/
 #
 # Adds a kapow command that will restart an app
 #

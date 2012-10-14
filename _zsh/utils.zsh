@@ -27,15 +27,6 @@ function less() {
 	[ `wc -l "$1" | awk '{print $1}'` -ge $LINES ] && less "$1" || cat "$1"
 }
 
-# curl get. 
-#
-# Usage:
-#
-#   cget URL [DIR]
-#
-function cget() {
-  ( cd "${2:-.}">/dev/null; curl -OL "$1"; )  
-}
 
 function pmine() {
   ps "$@" -u "$USER" -o pid,%cpu,%mem,command
@@ -63,3 +54,20 @@ function popdll() {
   ls -lFhA
 }
 
+##
+## Network
+##
+
+# curl get. 
+#
+# Usage:
+#
+#   cget URL [DIR]
+#
+function cget() {
+  ( cd "${2:-.}">/dev/null; curl -OL "$1"; )  
+}
+
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'

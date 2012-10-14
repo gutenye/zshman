@@ -1,3 +1,6 @@
+# Python is a programming language that lets you work more quickly and integrate your systems more effectively. 
+# Homepage: http://www.python.org/
+
 alias easy_install="$sudo easy_install" 
 
 function pip() {

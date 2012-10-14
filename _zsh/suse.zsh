@@ -1,3 +1,6 @@
+# SUSE is enterprise Linux you can rely on.
+# Homepage: https://www.suse.com/
+
 alias zi="$sudo zypper install"
 alias zrf="$sudo zypper refresh"
 alias zs="zypper search"

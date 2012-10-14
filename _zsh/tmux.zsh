@@ -1,3 +1,6 @@
+# tmux is a terminal multiplexer
+# Homepage: http://tmux.sourceforge.net/
+
 local tmuxconf
 if [[ "$TERM" == 'xterm-color' ]]; then
   if [[ -e "$HOME/.tmux.conf" ]]; then

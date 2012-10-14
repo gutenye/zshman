@@ -1,3 +1,6 @@
+# Yaourt is a community-contributed wrapper for pacman which adds seamless access to the AUR, a
+# Homepage: https://wiki.archlinux.org/index.php/Yaourt
+
 alias yaconf="yaourt -C"        # Fix all configuration files with vimdiff
 # Pacman - https://wiki.archlinux.org/index.php/Pacman_Tips
 alias yaupg="yaourt -Syu"        # Synchronize with repositories before upgrading packages that are out of date on the local system.

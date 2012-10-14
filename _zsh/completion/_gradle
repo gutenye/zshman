@@ -1,3 +1,5 @@
+#compdef gradle gradlew
+
 #!zsh
 ##############################################################################
 # A descriptive listing of core Gradle commands 
@@ -105,9 +107,10 @@ _gradlew_tasks () {
 ##############################################################################
 # Register the completions against the gradle and gradlew commands
 ############################################################################
-compdef _gradle_tasks gradle
-compdef _gradlew_tasks gradlew
-
+case $name in
+  gradle ) _gradle_tasks ;;
+  gradlew) _gradlew_tasks ;;
+esca
 
 ##############################################################################
 # Open questions for future improvements:

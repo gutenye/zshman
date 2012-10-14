@@ -1,3 +1,6 @@
+# rbenv is a Simple Ruby version management.
+# Homepage: https://github.com/sstephenson/rbenv/
+
 #source "$ZSH/rbenv.osx.zsh"
 
 function rb.19() {

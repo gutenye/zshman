@@ -1,6 +1,5 @@
-# Some aliases for zeus. (See: https://github.com/burke/zeus)
-# Zeus preloads your Rails environment and forks that process whenever
-# needed. This effectively speeds up Rails' boot process to under 1 sec.
+# Zeus, Boot any rails app in under a second
+# Homepage: https://github.com/burke/zeus
 
 # Always use bundler.
 # Rails depends on bundler, so we can be pretty sure, that there are no

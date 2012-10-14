@@ -1,3 +1,6 @@
+# virtualenvwrapper is a set of extensions to Ian Bicking’s virtualenv tool for creating isolated Python development environments. 
+# Homepage: http://www.doughellmann.com/projects/virtualenvwrapper/
+
 WRAPPER_FOUND=0
 for wrapsource in "/usr/bin/virtualenvwrapper.sh" "/usr/local/bin/virtualenvwrapper.sh" "/etc/bash_completion.d/virtualenvwrapper" ; do
   if [[ -e $wrapsource ]] ; then
