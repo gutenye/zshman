@@ -1,6 +1,6 @@
 [[ $(id -u) -eq 0 ]] && sudo="" || sudo="sudo"
 
-source "$ZSH/completion.zsh"
+source "$ZSH/zsh.completion.zsh"
 
 # ¤settings #{{{1
 # Smart URLs
@@ -24,13 +24,9 @@ setopt inc_append_history
 # setopt share_history
 #}}}1
 
-# file ignore
-fignore=(.o \~ .dvi)
-
 # ¤ls
 dircolors ~/.dir_colors >/dev/null
 alias ls="ls --color=auto --group-directories-first --ignore-backups"
-
 alias ll='ls -lh'            # Show human readable.
 alias la='ls -lhA'           # Show hidden files.
 alias lx='ls -lhXB'          # Sort by extension.
@@ -49,19 +45,10 @@ setopt pushd_ignore_dups    # Don't store duplicates in the stack.
 setopt cdable_vars          # Change directory to a path stored in a variable.
 setopt auto_name_dirs       # Auto add variable-stored paths to ~ list.
 setopt multios              # Write to multiple descriptors.
-
-function ce(){ cd $G_DEV/$1 }
-function ceo(){ cd $G_DEV/one/$1 }
-function cet(){ cd $G_DEV/two/$1 }
-function ces(){ cd $G_DEV/src/$1 }
-function cel(){ cd $G_DEV/learn/$1 }
-alias cw="cd $G_DOWN"
-
 function mkdcd() {
   mkdir -p "$1"
   cd "$1"
 }
-
 function cdll() {
   if [[ -n "$1" ]]; then
     builtin cd "$1"
@@ -107,6 +94,13 @@ function cd() {
     builtin cd "$@"
   fi
 }
+
+function ce(){ cd $G_DEV/$1 }
+function ceo(){ cd $G_DEV/one/$1 }
+function cet(){ cd $G_DEV/two/$1 }
+function ces(){ cd $G_DEV/src/$1 }
+function cel(){ cd $G_DEV/learn/$1 }
+alias cw="cd $G_DOWN"
 
 # ¤alias
 # Global
@@ -256,6 +250,7 @@ alias o="xdg-open"
 alias r="run"
 alias x="extract"
 
+#source "$ZSH/zsh.correct.zsh"
 # load plugins
 source "$ZSH/lib/zshrc.zsh"
 

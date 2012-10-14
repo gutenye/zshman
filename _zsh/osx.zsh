@@ -1,3 +1,5 @@
+alias brews='brew list -1'
+
 function tab() {
   local command="cd \\\"$PWD\\\""
   (( $# > 0 )) && command="${command}; $*"

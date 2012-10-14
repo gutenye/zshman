@@ -1,5 +1,3 @@
-#source "$ZSH/archlinux.yaourt.zsh"
-
 function upgrade() {
  $sudo pacman -Syu
 }
@@ -62,4 +60,3 @@ pacdisowned() {
 
   comm -23 "$fs" "$db"
 }
-

@@ -1,5 +1,7 @@
 #¤completion
 
+fignore=(.o \~ .dvi) # lists suffixes of files to ignore during completion
+
 unsetopt menu_complete     # Do not autoselect the first completion entry.
 unsetopt flow_control      # Disable start/stop characters in shell editor.
 setopt auto_menu           # Show completion menu on a succesive tab press.

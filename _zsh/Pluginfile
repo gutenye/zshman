@@ -6,9 +6,13 @@ keymap vim
 #keymap local
 
 plugin utils 
-plugin archlinux
-plugin systemd
 plugin autojump
+
+plugin archlinux
+  #plugin yaourt
+#plugin debain
+#plugin fedora
+plugin systemd
 plugin iproute2
 #plugin ssh-agent
 
@@ -18,8 +22,10 @@ plugin ruby
   #plugin rvm
 plugin python
 plugin node
+#plugin perl
 
 plugin vim
+  #plugin vundle
 plugin git
 #plugin github
 
