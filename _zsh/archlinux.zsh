@@ -1,4 +1,4 @@
-# Arch Linux: a lightweight and flexible Linux® distribution that tries to Keep It Simple.
+# Arch Linux: a lightweight and flexible Linux distribution that tries to Keep It Simple.
 # Homepage: http://www.archlinux.org/
 
 function pacman() {

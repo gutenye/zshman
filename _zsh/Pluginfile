@@ -1,32 +1,44 @@
-#theme local
-#theme default.rvm.ssh.git.svn # rvm, svn are slow.
+#theme default.rbenv.ssh.git # rvm, svn are slow.
 theme local.user.rbenv.ssh.git
 
 keymap vim 
-#keymap local
-
-plugin utils 
-plugin autojump
 
 plugin archlinux
   #plugin yaourt
 #plugin debian
 #plugin fedora
+#plugin suse
+#plugin osx
+  #macports
+
+plugin utils
+plugin autojump
 plugin systemd
 plugin iproute2
 #plugin ssh-agent
+#plugin gpg-agent 
+
+#plugin vim
+	#plugin vundle
+#plugin textmate
+
+plugin git
+	#plugin git-flow
+	#plugin github
+#plugin mercurial
 
 plugin ruby
-  plugin rails
-  plugin rbenv
-  #plugin rvm
-plugin python
-plugin node
+	#plugin jruby
+	plugin rbenv
+	#plugin rvm
+	#plugin rbfu
+#plugin python
+	#plugin virtualenvwrapper
+#plugin php
+	#plugin composer
+#plugin node
 #plugin perl
 
-plugin vim
-  #plugin vundle
-plugin git
-#plugin github
-
-# vim: filetype=zsh
+#plugin rails
+  #plugin zeus
+#plugin symfony2

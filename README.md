@@ -105,8 +105,37 @@ Update
 
 [meld](http://meldmerge.org): a visual diff and merge tool.
 
+
+Customize a Theme
+-----------------
+
+In ~/.zshrc
+
+	# PS1 is something like this '$cwd $git_info$git_status %(!.$root.$normal)'
+
+	themerc=(
+	  cwd      "$fg[cyan]"
+		git_info "$fg[blue]"
+	  root     "$fg_bold[red]"    # when you have privilege
+	  normal   "$fg_bold[green]"  # you don't have privilege
+	  eos      "$reset_color"
+	)
+
+	helperrc=(
+		git_added     " ✚"
+		git_modified  " ✹"
+		git_deleted   " ✖"
+		git_renamed   " ➜"
+		git_unmerged  " ═"
+		git_untracked " ✭"
+	)
+
+themerc defines color. helperrc defines prompt string.
+
 Development
 ===========
+
+Follow [Development Documentation](https://github.com/GutenYe/zcm/wiki#Development Documentation)
 
 Contributing
 ------------

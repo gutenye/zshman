@@ -1,42 +1,57 @@
+Follow [Plugin Development Guide](https://github.com/GutenYe/zcm/wiki/Plugin-Development-Guide) and [Theme Development Guide](https://github.com/GutenYe/zcm/wiki/Theme-Development-Guide)
+
 We love pull requests. Here's a quick guide:
 
 1. Fork the repo.
 
 2. Create a topic branch from where you want to base your work. 
 
-3. Add a test for your change. Only refactoring and documentation changes
-require no new tests. If you are adding functionality or fixing a bug, we need
-a test!
+3. Push to your fork and submit a pull request.
 
-4. Make the test pass with `rake test`.
+4. Follow the Coding Style Guide below.
 
-5. Push to your fork and submit a pull request.
+Coding Style Guide
+==================
 
-6. Coding Style Guide: https://gist.github.com/1105334
+Formatting
+----------
 
-And in case we didn't emphasize it enough: we love tests!
+- Use 2 space indent, no tabs.
 
+Naming
+-----
 
+- Use snake_case name convention.
 
+- names prefixed with _ for private functions or variables.
 
-1. write completion code in `_zsh/completions/_foo`
+Syntax
+------
 
-2. always use $sudo when you need to use sudo.
+- Prefer double quote over single quote.
 
-  alias gem="$sudo gem"
+- Prefer `source lib.zsh` over `. file.zsh`
 
-3. Documentation is important. write one in wiki page.
-
-Standard Coding Guidelines
-----------------------------
-
-* use double quote instead of single quote.
-* use `source file.zsh` instead of `. file.zsh`
-
-* write function, always use 'function' keyword.
+- function: always use 'function' keyword.
 
 
 	function foo() {
-		..
+		...
 	}
 
+- if-then statments shoule be on one line.
+
+
+	if [[ -f $1 ]]; then
+		...
+	fi
+
+- alias: alawys use quotes at right side.
+
+
+	alias foo="ls"
+
+- Always use $sudo when you need to use sudo.
+
+
+	alias gem="$sudo gem"
