@@ -64,7 +64,6 @@ zstyle ":completion:*:*:*:users" ignored-patterns \
 zstyle "*" single-ignored show
 
 
-# guten
 # completer
 # _expand _complete _ignored _correct _approximate
 #
@@ -75,7 +74,6 @@ zstyle ":completion:*" max-errors 10
 
 zstyle ":completion:*" matcher-list ""
 
-zstyle :compinstall filename "/home/guten/.zshrc"
 #compdef "_files -g "*.log"" "-redirect-,2>,-default-"
 zstyle ":completion:*:*:-redirect-,2>,*:*" file-patterns "*.log"
 zstyle ":completion:*" verbose yes

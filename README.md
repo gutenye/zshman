@@ -9,7 +9,7 @@ ZCM, A simple Zsh Configuraton Manager
 | Documentation: | https://github.com/GutenYe/zcm/wiki   |
 | Issue Tracker: | https://github.com/GutenYe/zcm/issues |
 
-**Note: It's still under early development.** 
+### Note: It's still under early development.
 
 This is the version 2.0 of ZCM, you can find version 1.0 at [here](https://github.com/zcm/zcm).
 

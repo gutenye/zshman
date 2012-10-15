@@ -4,7 +4,7 @@ based on [Sorin Ionescu's theme](https://github.com/sorin-ionescu/oh-my-zsh/blob
 
 result
 
-	/home/guten master ✭ ✖ ✹ ❯
+	/home/user master ✭ ✖ ✹ ❯
 
 this snapshot is wrong. 
 ![snapshot](https://raw.github.com/zcm/theme-default/master/snapshot.png)
