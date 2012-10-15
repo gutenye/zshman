@@ -66,7 +66,7 @@ Install
 	$ mv .zsh .zsh-bak
 	$ mv .zprofile .zprofile-bak
 
-**Download this repository**
+**Download this repository** [download](https://github.com/GutenYe/zcm/zipball/master)
 
 	$ cp _zshrc ~/.zshrc
 	$ cp _zsh ~/.zsh
