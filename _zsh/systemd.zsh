@@ -39,8 +39,11 @@ function jctl(){
   name=$1; shift
 
   case $name in
+    "" )      journalctl ;;
     systemd ) journalctl _PID=1 $* ;;
-    nm ) journalctl _SYSTEMD_UNIT=NetworkManager.service $* ;;
-    * ) journalctl _SYSTEMD_UNIT=${name}.service $* ;;
+    driver | syslog | journal | stdout | kernel )
+      journalctl _TRANSPORT=$name  $* ;;
+    nm )      journalctl _SYSTEMD_UNIT=NetworkManager.service $* ;;
+    * )       journalctl _SYSTEMD_UNIT=${name}.service $* ;;
   esac
 }

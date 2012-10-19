@@ -14,6 +14,9 @@ function pip() {
 	fi
 }
 
+# interactive python shell.
+alias ipy="python"
+
 # Find python file
 alias pyfind='find . -name "*.py"'
 

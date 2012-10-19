@@ -9,3 +9,5 @@ function npm() {
 	esac
 }
 
+# interactive javascript with with Mozilla Rhino
+alias ijs="java -cp /usr/share/java/js.jar org.mozilla.javascript.tools.shell.Main -opt -1"

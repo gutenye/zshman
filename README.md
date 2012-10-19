@@ -116,8 +116,8 @@ In ~/.zshrc
 	themerc=(
 	  cwd      "$fg[cyan]"
 		git_info "$fg[blue]"
-	  root     "$fg_bold[red]"    # when you have privilege
-	  normal   "$fg_bold[green]"  # you don't have privilege
+	  root     "$fg_bold[red]"   
+	  normal   "$fg_bold[green]"
 	  eos      "$reset_color"
 	)
 

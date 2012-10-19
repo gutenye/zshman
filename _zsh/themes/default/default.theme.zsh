@@ -1,6 +1,6 @@
 local line cwd helper sep root normal
 
-# /home/guten master ✭ ✖ ✹ ❯ 
+# ~ master ✭ ✖ ✹ ❯ 
 line='$cwd$helper $sep '
 cwd='%c'
 helper+=''
