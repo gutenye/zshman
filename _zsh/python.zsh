@@ -8,7 +8,7 @@ function pip() {
 		command pip $*
 	else
 		case $1 in
-			install | uninstall ) $sudo pip$* ;;
+			install | uninstall ) $sudo pip $* ;;
 			*) command pip $* ;;
 		esac
 	fi
