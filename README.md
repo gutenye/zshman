@@ -1,4 +1,4 @@
-ZCM, An Advanced Zsh Configuraton Manager
+Guten Zshman, An Advanced Zsh Configuraton Manager
 ======================================
 
 |                |                                       |
@@ -13,7 +13,7 @@ ZCM, An Advanced Zsh Configuraton Manager
 **Features**
 
 - Simple. <br>
-  *edit ~/.zsh/git.zsh instead of ~/.zsh/plugins/git/git.plugin.zsh*
+  *edit ~/.zsh/pacman.zsh instead of ~/.zsh/plugins/pacman/pacman.plugin.zsh*
 
 - Full Control. <br>
   *you can add/modify/remove any file in any way.*
