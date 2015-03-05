@@ -1,14 +1,12 @@
 default theme for zcm
 
+![snapshot](https://raw.githubusercontent.com/GutenYe/zshman/master/.zsh/themes/default/snapshot.jpg)
+
 based on [Sorin Ionescu's theme](https://github.com/sorin-ionescu/oh-my-zsh/blob/master/themes/sorin.zsh-theme)
 
 result
 
 	/home/user master ✭ ✖ ✹ ❯
-
-this snapshot is wrong. 
-![snapshot](https://raw.github.com/zcm/theme-default/master/snapshot.png)
-
 
 normal prompt is `'$cwd$helper $sep '`
 
