@@ -55,7 +55,7 @@ Getting Started
 
 That's all :)
 
-You can find a list of plugins at [here](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins)
+It's so simple that it does not come withy any plugins, but you can find a list of plugins at [here](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins)
 
 **Some good plugins**
 
@@ -75,7 +75,7 @@ Contributing
 
 Please see [Contibution Guide](https://github.com/GutenYe/zshman/blob/master/CONTRIBUTING.md).
 
-A list of [Contributors](https://github.com/GutenYe/zshman/contributors).
+Thanks to all [contributors](https://github.com/GutenYe/zshman/contributors).
 
 Copyright
 ---------
