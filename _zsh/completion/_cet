@@ -1,3 +1,0 @@
-#compdef cet
-
-_files -W $G_DEV/two

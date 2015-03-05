@@ -1,3 +1,0 @@
-#compdef ceo
-
-_files -W $G_DEV/one

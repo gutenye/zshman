@@ -1,7 +1,0 @@
-#compdef run
-
-source ~/.runrc
-
-run_cmds=(${(k)apps} $names)
-
-_describe 'run' run_cmds

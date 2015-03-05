@@ -1,17 +1,14 @@
-ZCM, A simple Zsh Configuraton Manager
+ZCM, An Advanced Zsh Configuraton Manager
 ======================================
 
 |                |                                       |
 |----------------|---------------------------------------|
-| Homepage:      | https://github.com/GutenYe/zcm        |
+| Homepage:      | https://github.com/GutenYe/zshman        |
 | Author:	       | Guten                                 |
 | License:       | MIT License                           |
-| Documentation: | https://github.com/GutenYe/zcm/wiki   |
-| Issue Tracker: | https://github.com/GutenYe/zcm/issues |
-
-### Note: It's still under early development.
-
-This is the version 2.0 of ZCM, you can find version 1.0 at [here](https://github.com/zcm/zcm).
+| Documentation: | https://github.com/GutenYe/zshman/wiki   |
+| Issue Tracker: | https://github.com/GutenYe/zshman/issues |
+| Related Projects: | [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) |
 
 **Features**
 
@@ -19,144 +16,73 @@ This is the version 2.0 of ZCM, you can find version 1.0 at [here](https://githu
   *edit ~/.zsh/git.zsh instead of ~/.zsh/plugins/git/git.plugin.zsh*
 
 - Full Control. <br>
-  *you can add/modify/remove any file in any way. It uses a seperate git branch to track updates.*
+  *you can add/modify/remove any file in any way.*
 
 - Plugin system. <br>
   *enable/disable a plugin is easy.*
-  
+
 - Theme system. <br>
   *write your own theme is quite easy.*
 
-Getting Started
----------------
-
-ZCM Layout
-
-	~/.zshrc
-	~/.zsh/
-		Pluginfile         # enable/disable plugin here
-		foo.zsh            # a foo plugin
-		foo.profile.zsh    # load by ~/.zprofile
-
-		themes/            # theme files
-		keymaps/           # keymap files
-
-		completion/        # all completions file are putted here. e.g. _foo
-		bin/               # user made scripts
-
-the `~/.zsh/Pluginfile` file
-
-	theme default.rbenv.ssh.git	
-	keymap vim
-
-	plugin git
-	plugin ruby
-
-That's all :) 
-
-Read more about it at [Documentation](https://github.com/GutenYe/zcm/wiki).
+- Auto sudo. <br>
+  *Automatically prepend the `sudo` before a command*
 
 Install
---------
+-------
 
 **Backup original zsh configuration files**
 
 	$ cd ~
-	$ mv .zshrc .zshrc-bak
-	$ mv .zsh .zsh-bak
-	$ mv .zprofile .zprofile-bak
+	$ mkdir .zshrc-bak
+	$ mv .zshrc .zsh .zprofile .zshrc-bak
 
-**Download this repository** [download](https://github.com/GutenYe/zcm/zipball/master)
+**Download this repository** [download](https://github.com/GutenYe/zshman/zipball/master)
 
-	$ cp _zshrc ~/.zshrc
-	$ cp _zsh ~/.zsh
-	$ cp _zprofile ~/.zprofile
+	$ cp .zshrc .zsh .zprofile .zprofile_linux .zprofile_osx ~
 
-**Syntax Highlight in vim**
+Getting Started
+---------------
 
-Edit `~/.vim/filetype.vim`
+**Create a plugin**
 
-	au! BufNewFile,BufRead ~/.zsh/completion/*   setfiletype zsh 
+1. edit ~/.zsh/hello.zsh
 
-Update
-------
+	alias hello="echo 'Hello world'"
 
-**Setup Update Environment**
+2. edit ~/.zsh/Pluginfile
 
-	$ git clone git://github.com/GutenYe/zcm.git ~/.zsh/update
+	plugin hello
 
-	! install meld
-	# pacman -S meld                    (ArchLinux)
-	# apt-get install meld              (Ubuntu)
+That's all :)
 
-	$ git config --global diff.guitool meld
-	$ git config --global difftool.prompt false
+You can find a list of plugins at [here](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins)
 
-**Preform An Update**
+**Some good plugins**
 
-	$ cd ~/.zcm/update
-	$ git fetch origin
+- [extract](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/extract/extract.plugin.zsh)
 
-	$ git difftool -g -d ..origin/master
-	> here you can view new updates in meld. 
-	> find interesting things and add them to you ZSH configuration files.
-
-	$ git merge origin/master 
-
-[meld](http://meldmerge.org): a visual diff and merge tool.
-
-
-Customize a Theme
------------------
-
-In ~/.zshrc
-
-	# PS1 is something like this '$cwd $git_info$git_status %(!.$root.$normal)'
-
-	themerc=(
-	  cwd      "$fg[cyan]"
-		git_info "$fg[blue]"
-	  root     "$fg_bold[red]"   
-	  normal   "$fg_bold[green]"
-	  eos      "$reset_color"
-	)
-
-	helperrc=(
-		git_added     " ✚"
-		git_modified  " ✹"
-		git_deleted   " ✖"
-		git_renamed   " ➜"
-		git_unmerged  " ═"
-		git_untracked " ✭"
-	)
-
-themerc defines color. helperrc defines prompt string.
+Read more at [Documentations](https://github.com/GutenYe/zshman/wiki).
 
 Development
 ===========
 
-Follow [Development Documentation](https://github.com/GutenYe/zcm/wiki#Development Documentation)
+Follow [Development Documentation](https://github.com/GutenYe/zshman/wiki#Development Documentation)
 
 Contributing
 ------------
 
 * Submit any bugs/features/ideas to github issue tracker.
 
-Please see [Contibution Documentation](https://github.com/GutenYe/zcm/blob/master/CONTRIBUTING.md).
+Please see [Contibution Guide](https://github.com/GutenYe/zshman/blob/master/CONTRIBUTING.md).
 
-A list of [Contributors](https://github.com/GutenYe/zcm/contributors).
-
-Resources
----------
-
-* [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh): A community-driven framework for managing your zsh configuration.
+A list of [Contributors](https://github.com/GutenYe/zshman/contributors).
 
 Copyright
 ---------
 
 (the MIT License)
 
-Copyright (c) 2012 Guten
+Copyright (c) 2012-2015 Guten
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

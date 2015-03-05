@@ -4,7 +4,7 @@ We love pull requests. Here's a quick guide:
 
 1. Fork the repo.
 
-2. Create a topic branch from where you want to base your work. 
+2. Create a topic branch from where you want to base your work.
 
 3. Push to your fork and submit a pull request.
 

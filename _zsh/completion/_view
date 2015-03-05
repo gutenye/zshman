@@ -1,3 +1,0 @@
-#compdef view
-
-_files -W /var/log/

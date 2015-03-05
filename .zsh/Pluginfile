@@ -1,0 +1,5 @@
+theme default.whoami.rbenv.ssh.git
+
+keymap vim
+
+plugin pacman

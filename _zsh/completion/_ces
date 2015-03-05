@@ -1,3 +1,0 @@
-#compdef ces
-
-_files -W $G_DEV/src
