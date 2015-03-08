@@ -3,11 +3,11 @@ Guten Zshman, An Advanced Zsh Configuraton Manager
 
 |                |                                       |
 |----------------|---------------------------------------|
-| Homepage:      | https://github.com/GutenYe/zshman        |
+| Homepage:      | https://github.com/GutenYe/guten-zshman        |
 | Author:	       | Guten                                 |
 | License:       | GPL    |
-| Documentation: | https://github.com/GutenYe/zshman/wiki   |
-| Issue Tracker: | https://github.com/GutenYe/zshman/issues |
+| Documentation: | https://github.com/GutenYe/guten-zshman/wiki   |
+| Issue Tracker: | https://github.com/GutenYe/guten-zshman/issues |
 | Related Projects: | [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) |
 
 **Features**
@@ -36,7 +36,7 @@ Install
 	$ mkdir .zshrc-bak
 	$ mv .zshrc .zsh .zprofile .zshrc-bak
 
-**Download this repository** [download](https://github.com/GutenYe/zshman/zipball/master)
+**Download this repository** [download](https://github.com/GutenYe/guten-zshman/zipball/master)
 
 	$ cp .zshrc .zsh .zprofile .zprofile_linux .zprofile_osx ~
 
@@ -61,21 +61,21 @@ It's so simple that it does not come withy any plugins, but you can find a list 
 
 - [extract](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/extract/extract.plugin.zsh)
 
-Read more at [Documentations](https://github.com/GutenYe/zshman/wiki).
+Read more at [Documentations](https://github.com/GutenYe/guten-zshman/wiki).
 
 Development
 ===========
 
-Follow [Development Documentation](https://github.com/GutenYe/zshman/wiki#Development Documentation)
+Follow [Development Documentation](https://github.com/GutenYe/guten-zshman/wiki#Development Documentation)
 
 Contributing
 ------------
 
 * Submit any bugs/features/ideas to github issue tracker.
 
-Please see [Contibution Guide](https://github.com/GutenYe/zshman/blob/master/CONTRIBUTING.md).
+Please see [Contibution Guide](https://github.com/GutenYe/guten-zshman/blob/master/CONTRIBUTING.md).
 
-Thanks to all [contributors](https://github.com/GutenYe/zshman/contributors).
+Thanks to all [contributors](https://github.com/GutenYe/guten-zshman/contributors).
 
 Copyright
 ---------
