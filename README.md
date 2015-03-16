@@ -8,7 +8,7 @@ Guten Zshman, An Advanced Zsh Configuraton Manager
 | License:       | GPL    |
 | Documentation: | https://github.com/GutenYe/zshman/wiki   |
 | Issue Tracker: | https://github.com/GutenYe/zshman/issues |
-| Related Projects: | [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) |
+| Similar Projects: | [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) |
 
 **Features**
 
@@ -31,27 +31,14 @@ Install
 -------
 
 ```
-$ backup existing zsh configurations
+$ Backup existing zsh configurations
+$ mv ~/.zshrc ~/.zshrc-bak
+$ mv ~/.zprofile ~/.zprofile-bak
 $ mv ~/.zsh ~/.zsh-bak
 
 $ git clone https://github.com/GutenYe/zshman ~/.zsh/zshman
-$ edit ~/.zprofile
-
-  export ZSH="$HOME/.zsh/zshman/zsh"
-  source "$ZSH/lib/zprofile.zsh
-
-  # USER CONFIGURATIONS
-  # ...
-
-$ edit ~/.zshrc
-
-  source "$ZSH/lib/zshrc-init.zsh"
-
-  # USER CONFIGURATIONS
-  # ...
-
-  source "$ZSH/lib/zshrc-end.zsh"
-
+$ cp ~/.zsh/zshman/zprofile ~/.zprofile
+$ cp ~/.zsh/zshman/zshrc ~/.zshrc
 $ mkdir -p ~/.zsh/{disabled,completion}  ~/bin/completion-zsh
 ```
 
