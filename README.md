@@ -30,7 +30,7 @@ Guten Zshman, An Advanced Zsh Configuraton Manager
 Install
 -------
 
-``` bash
+```
 $ backup existing zsh configurations
 $ mv ~/.zsh ~/.zsh-bak
 
@@ -60,19 +60,19 @@ Getting Started
 
 **Enable a plugin**
 
-``` bash
+```
 $ cp ~/.zsh/zshman/zsh/git.zsh ~/.zsh
 ```
 
 **Disable a plugin**
 
-``` bash
+```
 $ mv ~/.zsh/git.zsh ~/.zsh/disabled
 ```
 
 **Edit or Create a plugin**
 
-``` bash
+```
 $ edit ~/.zsh/git.zsh
 ```
 
@@ -80,7 +80,7 @@ $ edit ~/.zsh/git.zsh
 
 A cmdline util is not a plugin, you can still use it if you switch to bash shell.
 
-``` bash
+```
 $ ln -s ~/.zsh/zshman/bin/extract ~/bin
 ```
 
@@ -112,7 +112,7 @@ How it Works
 
 It uses [meld](http://meldmerge.org) GUI diff tool
 
-``` bash
+```
 $ git fetch
 $ git difftool -g -d -t meld ..origin/master
 ```
