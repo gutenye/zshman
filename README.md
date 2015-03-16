@@ -3,17 +3,17 @@ Guten Zshman, An Advanced Zsh Configuraton Manager
 
 |                |                                       |
 |----------------|---------------------------------------|
-| Homepage:      | https://github.com/GutenYe/guten-zshman        |
+| Homepage:      | https://github.com/GutenYe/zshman        |
 | Author:	       | Guten                                 |
 | License:       | GPL    |
-| Documentation: | https://github.com/GutenYe/guten-zshman/wiki   |
-| Issue Tracker: | https://github.com/GutenYe/guten-zshman/issues |
+| Documentation: | https://github.com/GutenYe/zshman/wiki   |
+| Issue Tracker: | https://github.com/GutenYe/zshman/issues |
 | Related Projects: | [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) |
 
 **Features**
 
 - Simple. <br>
-  *edit ~/.zsh/pacman.zsh instead of ~/.zsh/plugins/pacman/pacman.plugin.zsh*
+  *Does not add any configurations to existng ~/.zshrc*
 
 - Full Control. <br>
   *you can add/modify/remove any file in any way.*
@@ -30,52 +30,108 @@ Guten Zshman, An Advanced Zsh Configuraton Manager
 Install
 -------
 
-**Backup original zsh configuration files**
+``` bash
+$ backup existing zsh configurations
+$ mv ~/.zsh ~/.zsh-bak
 
-	$ cd ~
-	$ mkdir .zshrc-bak
-	$ mv .zshrc .zsh .zprofile .zshrc-bak
+$ git clone https://github.com/GutenYe/zshman ~/.zsh/zshman
+$ edit ~/.zprofile
 
-**Download this repository** [download](https://github.com/GutenYe/guten-zshman/zipball/master)
+  export ZSH="$HOME/.zsh/zshman/zsh"
+  source "$ZSH/lib/zprofile.zsh
 
-	$ cp .zshrc .zsh .zprofile .zprofile_linux .zprofile_osx ~
+  # USER CONFIGURATIONS
+  # ...
+
+$ edit ~/.zshrc
+
+  source "$ZSH/lib/zshrc-init.zsh"
+
+  # USER CONFIGURATIONS
+  # ...
+
+  source "$ZSH/lib/zshrc-end.zsh"
+
+$ mkdir -p ~/.zsh/{disabled,completion}  ~/bin/completion-zsh
+```
 
 Getting Started
 ---------------
 
-**Create a plugin**
+**Enable a plugin**
 
-1. edit ~/.zsh/hello.zsh
+``` bash
+$ cp ~/.zsh/zshman/zsh/git.zsh ~/.zsh
+```
 
-	alias hello="echo 'Hello world'"
+**Disable a plugin**
 
-2. edit ~/.zsh/Pluginfile
+``` bash
+$ mv ~/.zsh/git.zsh ~/.zsh/disabled
+```
 
-	plugin hello
+**Edit or Create a plugin**
 
-That's all :)
+``` bash
+$ edit ~/.zsh/git.zsh
+```
 
-It's so simple that it does not come withy any plugins, but you can find a list of plugins at [here](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins)
+**Enable a cmdline util**
 
-**Some good plugins**
+A cmdline util is not a plugin, you can still use it if you switch to bash shell.
 
-- [extract](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/extract/extract.plugin.zsh)
+``` bash
+$ ln -s ~/.zsh/zshman/bin/extract ~/bin
+```
 
-Read more at [Documentations](https://github.com/GutenYe/guten-zshman/wiki).
+You can find more plugins at [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins)
+
+How it Works
+-----------
+
+**Structure**
+
+```
+~/.zsh/zshman/
+  zsh/
+    lib/
+    themes/
+    keymaps/
+  bin/
+   completion-zsh/
+
+~/.zsh/              # Structure follows ~/zshman/zsh, it has higher priority than ~/zshman/zsh, so anything copied from ~/zshman/zsh just works.
+  themes/
+  keymaps/
+  completion/
+  disabled/
+  <plugin>.zsh
+```
+
+**View what has changed since last time you git pull-ed**
+
+It uses [meld](http://meldmerge.org) GUI diff tool
+
+``` bash
+$ git fetch
+$ git difftool -g -d -t meld ..origin/master
+```
+
+Read more at [Documentations](https://github.com/GutenYe/zshman/wiki).
 
 Development
 ===========
 
-Follow [Development Documentation](https://github.com/GutenYe/guten-zshman/wiki#Development Documentation)
+Follow [Development Documentation](https://github.com/GutenYe/zshman/wiki#Development Documentation)
 
 Contributing
 ------------
 
 * Submit any bugs/features/ideas to github issue tracker.
 
-Please see [Contibution Guide](https://github.com/GutenYe/guten-zshman/blob/master/CONTRIBUTING.md).
+Please see [Contibution Guide](https://github.com/GutenYe/zshman/blob/master/CONTRIBUTING.md).
 
-Thanks to all [contributors](https://github.com/GutenYe/guten-zshman/contributors).
+Thanks to all [contributors](https://github.com/GutenYe/zshman/contributors).
 
 Copyright
 ---------

@@ -39,11 +39,6 @@ function zset_default(){
   rc=($name $value ${(@kv)rc})
 }
 
-# used in Pluginfile
-function plugin(){
-  zcm_plugins=($zcm_plugins $1)
-}
-
 function theme(){
   zcm_themes=($zcm_themes $1)
 }
@@ -64,7 +59,7 @@ function _zset_parse(){
 
   name=$1
   value=$2
-  
+
   if [[ $name =~ "^no" ]]; then
     name=$name[3,-1]
     value=false
