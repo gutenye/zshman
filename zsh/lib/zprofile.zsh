@@ -1,5 +1,5 @@
 case "$OSTYPE" in
-  darwin*)  ZSH_OS="osx" ;;
+  darwin*)  ZSH_OS="macos" ;;
   linux*)   ZSH_OS="linux" ;;
 esac
 export ZSH_OS
